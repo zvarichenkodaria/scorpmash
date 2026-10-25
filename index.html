@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scorpmash — промышленное оборудование, комплектующие и запчасти</title>
+<meta name="description" content="Каталог промышленного оборудования и комплектующих: подбор по брендам, категориям и артикулам.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f4f7fb;
+  --white:#fff;
+  --ink:#0f172a;
+  --muted:#5b6b7f;
+  --line:#dbe3ec;
+
+  --blue-900:#062a5c;
+  --blue-800:#0a3d7c;
+  --blue-700:#0d4b96;
+  --blue-600:#1157b0;
+  --blue-500:#1c69cf;
+  --blue-100:#e3edfb;
+  --blue-50:#f0f5fd;
+
+  --navy:#071c38;
+  --navy-2:#0b2547;
+
+  --green:#15803d;
+  --green-bg:#e7f6ed;
+  --amber:#b45309;
+  --amber-bg:#fff3e0;
+
+  --radius:18px;
+  --radius-lg:26px;
+  --shadow-sm:0 4px 18px rgba(9,30,66,.06);
+  --shadow:0 20px 55px rgba(9,30,66,.10);
+  --shadow-lg:0 32px 80px rgba(9,30,66,.16);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit}
+
+.container{
+  width:min(1300px,100% - 40px);
+  margin-inline:auto;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:56px;
+  padding:0 28px;
+  border:0;
+  border-radius:14px;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  transition:.22s ease;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--blue-600);
+  color:#fff;
+  box-shadow:0 14px 34px rgba(17,87,176,.28);
+}
+.btn-primary:hover{
+  background:var(--blue-700);
+  transform:translateY(-2px);
+}
+.btn-white{
+  background:#fff;
+  color:var(--blue-800);
+  box-shadow:var(--shadow-sm);
+}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-outline{
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,.35);
+  color:#fff;
+}
+.btn-outline:hover{background:rgba(255,255,255,.1)}
+.btn-soft{
+  background:var(--blue-100);
+  color:var(--blue-800);
+}
+.btn-soft:hover{background:#d5e4f8}
+
+/* Topbar */
+.topbar{
+  background:var(--navy);
+  color:rgba(255,255,255,.72);
+  font-size:13.5px;
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  min-height:46px;
+}
+.topbar-group{display:flex;gap:26px}
+.topbar a:hover{color:#fff}
+
+/* Header */
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:32px;
+  min-height:86px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-.03em;
+}
+.logo-mark{
+  width:60px;height:60px;
+  border-radius:0px;
+  display:grid;place-items:center;
+  color:#fff;
+  font-size:20px;
+}
+.logo small{
+  display:block;
+  font-size:11px;
+  font-weight:700;
+  color:var(--muted);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.nav{display:flex;justify-content:center;gap:4px}
+.nav a{
+  padding:12px 16px;
+  border-radius:12px;
+  font-weight:600;
+  font-size:15px;
+  color:#42526b;
+  transition:.2s;
+}
+.nav a:hover{color:var(--blue-800);background:var(--blue-50)}
+.nav a.active{
+  color:var(--blue-800);
+  background:var(--blue-100);
+}
+.header-actions{display:flex;align-items:center;gap:18px}
+.contact-mini{text-align:right}
+.contact-mini b{display:block;font-size:17px}
+.contact-mini span{font-size:12px;color:var(--muted)}
+.burger{
+  display:none;
+  width:50px;height:50px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  font-size:20px;
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  color:#fff;
+  padding:64px 0 90px;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 520px at 10% 0%,rgba(28,105,207,.38),transparent 62%),
+    radial-gradient(900px 500px at 95% 100%,rgba(6,42,92,.85),transparent 60%),
+    linear-gradient(135deg,var(--navy) 0%,var(--blue-900) 55%,var(--blue-800) 100%);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.7),transparent 75%);
+  pointer-events:none;
+}
+.hero-slider{
+  position:relative;
+  z-index:1;
+  height:460px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:var(--radius-lg);
+}
+.hero-slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  padding:52px;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.hero-slide.is-active{
+  opacity:1;
+  visibility:visible;
+}
+.hero-slide-copy .hero-inner{width:100%}
+.hero-slide-copy .lead{margin-bottom:0}
+.hero-slide-image{padding:0}
+.hero-banner-img{
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+}
+.hero-inner{
+  position:relative;
+  max-width:860px;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:13.5px;
+  font-weight:700;
+}
+.dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:#4ade80;
+  box-shadow:0 0 0 5px rgba(74,222,128,.18);
+}
+.hero h1{
+  margin:30px 0 24px;
+  font-size:clamp(44px,6.4vw,82px);
+  line-height:1.02;
+  letter-spacing:-.045em;
+  font-weight:800;
+}
+.hero h1 span{
+  color:#8db8f7;
+}
+.lead{
+  max-width:680px;
+  margin:0 0 40px;
+  font-size:19px;
+  color:rgba(255,255,255,.78);
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero .hero-actions{margin-top:26px}
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-top:64px;
+}
+.stat{
+  padding:26px 24px;
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.13);
+  backdrop-filter:blur(8px);
+}
+.stat b{
+  display:block;
+  font-size:36px;
+  letter-spacing:-.04em;
+}
+.stat span{
+  font-size:13.5px;
+  color:rgba(255,255,255,.66);
+}
+.hero-pagination{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:16px auto 0;
+}
+.hero-pagination-bar{
+  position:relative;
+  width:42px;
+  height:6px;
+  padding:0;
+  overflow:hidden;
+  border:0;
+  border-radius:99px;
+  background:rgba(255,255,255,.32);
+  cursor:pointer;
+}
+.hero-pagination-bar::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:#fff;
+  transform:scaleX(0);
+  transform-origin:left;
+}
+.hero-pagination-bar.is-active::after{
+  animation:hero-progress 10s linear forwards;
+}
+.hero-pagination-bar:focus-visible{outline:2px solid #fff;outline-offset:4px}
+@keyframes hero-progress{
+  to{transform:scaleX(1)}
+}
+
+/* Search section */
+.search-section{
+  padding:0;
+  margin-top:-64px;
+  position:relative;
+  z-index:5;
+}
+.search-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:36px;
+  box-shadow:var(--shadow-lg);
+  display:grid;
+  grid-template-columns:1.1fr 1.6fr;
+  gap:40px;
+  align-items:center;
+  margin-top: 35px;
+}
+.search-info h2{
+  margin:0 0 12px;
+  font-size:clamp(26px,3.2vw,38px);
+  letter-spacing:-.035em;
+}
+.search-info p{
+  margin:0;
+  color:var(--muted);
+  font-size:16.5px;
+}
+.search-form{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr auto;
+  gap:14px;
+  align-items:end;
+}
+.field label{
+  display:block;
+  margin-bottom:8px;
+  font-size:12.5px;
+  font-weight:800;
+  color:#42526b;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.field input,.field select{
+  width:100%;
+  min-height:58px;
+  padding:0 18px;
+  border:1.5px solid var(--line);
+  border-radius:14px;
+  background:var(--blue-50);
+  font:inherit;
+  color:var(--ink);
+  transition:.2s;
+}
+.field input:focus,.field select:focus{
+  outline:none;
+  border-color:var(--blue-600);
+  background:#fff;
+  box-shadow:0 0 0 4px rgba(17,87,176,.12);
+}
+
+/* Sections */
+.section{padding:110px 0}
+.section.tight{padding-top:80px}
+.section.alt{
+  background:#fff;
+  border-block:1px solid var(--line);
+}
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:52px;
+}
+.section-head h2{
+  margin:0;
+  font-size:clamp(32px,4.6vw,54px);
+  line-height:1.07;
+  letter-spacing:-.04em;
+}
+.section-head p{
+  margin:14px 0 0;
+  max-width:660px;
+  font-size:17.5px;
+  color:var(--muted);
+}
+.section-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:800;
+  color:var(--blue-700);
+  white-space:nowrap;
+}
+.section-link:hover{gap:13px}
+
+/* Banners */
+.banner-grid{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:22px;
+}
+.banner{
+  position:relative;
+  min-height:360px;
+  padding:44px;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  box-shadow:var(--shadow);
+}
+.banner-main{
+  background:
+    linear-gradient(115deg,rgba(6,42,92,.9),rgba(17,87,176,.72)),
+    linear-gradient(135deg,var(--navy),var(--blue-800));
+}
+.banner-side{
+  background:
+    linear-gradient(160deg,rgba(6,42,92,.92),rgba(13,75,150,.8)),
+    var(--blue-900);
+}
+.banner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(200deg,#000,transparent 70%);
+}
+.banner > *{position:relative;z-index:2}
+.banner-tag{
+  align-self:flex-start;
+  margin-bottom:auto;
+  padding:8px 15px;
+  border-radius:999px;
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.22);
+  font-size:12.5px;
+  font-weight:800;
+}
+.banner h3{
+  margin:28px 0 12px;
+  font-size:clamp(27px,3.2vw,40px);
+  line-height:1.1;
+  letter-spacing:-.035em;
+}
+.banner p{
+  margin:0 0 26px;
+  max-width:560px;
+  color:rgba(255,255,255,.78);
+}
+
+/* Categories */
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.category{
+  position:relative;
+  min-height:240px;
+  padding:30px;
+  border-radius:var(--radius);
+  background:#fff;
+  border:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.25s ease;
+  overflow:hidden;
+}
+.category::before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;
+  height:4px;
+  background:var(--blue-600);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:.25s;
+}
+.category:hover{
+  transform:translateY(-6px);
+  border-color:rgba(17,87,176,.32);
+  box-shadow:var(--shadow);
+}
+.category:hover::before{transform:scaleX(1)}
+.category-icon{
+  width:62px;height:62px;
+  border-radius:17px;
+  display:grid;place-items:center;
+  font-size:26px;
+  background:var(--blue-100);
+}
+.category h3{
+  margin:24px 0 8px;
+  font-size:20px;
+  letter-spacing:-.02em;
+}
+.category p{
+  margin:0;
+  color:var(--muted);
+  font-size:14.5px;
+}
+.category-count{
+  margin-top:20px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--blue-700);
+}
+
+/* Brands */
+.brand-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:16px;
+}
+.brand{
+  min-height:136px;
+  padding:24px;
+  border-radius:var(--radius);
+  background:#fff;
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  text-align:center;
+  font-weight:800;
+  font-size:17px;
+  letter-spacing:-.02em;
+  transition:.22s;
+}
+.brand:hover{
+  transform:translateY(-4px);
+  border-color:var(--blue-600);
+  color:var(--blue-800);
+  box-shadow:var(--shadow-sm);
+}
+.brand span{
+  display:block;
+  margin-top:6px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--muted);
+}
+
+/* Features */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.feature{
+  padding:34px;
+  border-radius:var(--radius);
+  background:var(--blue-50);
+  border:1px solid var(--line);
+  transition:.22s;
+}
+.feature:hover{
+  background:#fff;
+  box-shadow:var(--shadow-sm);
+  transform:translateY(-3px);
+}
+.feature-num{
+  display:inline-grid;
+  place-items:center;
+  width:48px;height:48px;
+  margin-bottom:22px;
+  border-radius:14px;
+  background:var(--blue-700);
+  color:#fff;
+  font-weight:800;
+}
+.feature h3{
+  margin:0 0 10px;
+  font-size:19px;
+  letter-spacing:-.02em;
+}
+.feature p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* Table */
+.table-wrap{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.table-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:26px 30px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(90deg,var(--blue-50),#fff);
+}
+.table-toolbar h3{margin:0;font-size:22px;letter-spacing:-.025em}
+.table-toolbar p{margin:5px 0 0;font-size:14px;color:var(--muted)}
+.table-scroll{overflow-x:auto}
+table{
+  width:100%;
+  min-width:900px;
+  border-collapse:collapse;
+}
+th,td{
+  padding:19px 30px;
+  text-align:left;
+  border-bottom:1px solid var(--line);
+  font-size:15px;
+}
+th{
+  background:var(--blue-900);
+  color:rgba(255,255,255,.82);
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+}
+tbody tr:hover{background:var(--blue-50)}
+tbody tr:last-child td{border-bottom:0}
+.code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-weight:700;
+  color:var(--blue-700);
+}
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+}
+.in-stock{background:var(--green-bg);color:var(--green)}
+.on-order{background:var(--amber-bg);color:var(--amber)}
+
+/* Services */
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.service{
+  padding:36px;
+  border-radius:var(--radius-lg);
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+}
+.service-icon{
+  width:60px;height:60px;
+  margin-bottom:24px;
+  border-radius:17px;
+  display:grid;place-items:center;
+  font-size:25px;
+  background:var(--blue-100);
+}
+.service h3{margin:0 0 10px;font-size:21px;letter-spacing:-.025em}
+.service p{margin:0;color:var(--muted)}
+
+/* CTA */
+.cta{
+  position:relative;
+  overflow:hidden;
+  padding:50px;
+  border-radius:var(--radius-lg);
+  color:#fff;
+  background:
+    radial-gradient(800px 400px at 8% 10%,rgba(28,105,207,.45),transparent),
+    radial-gradient(800px 400px at 92% 90%,rgba(6,42,92,.8),transparent),
+    linear-gradient(120deg,var(--blue-900),var(--navy));
+  box-shadow:var(--shadow-lg);
+  top: 50px;
+}
+.cta-inner{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:48px;
+}
+.cta h2{
+  margin:0 0 16px;
+  font-size:clamp(32px,4.6vw,52px);
+  line-height:1.07;
+  letter-spacing:-.04em;
+}
+.cta p{
+  margin:0;
+  max-width:660px;
+  font-size:18px;
+  color:rgba(255,255,255,.76);
+}
+
+/* Footer */
+.footer{
+  margin-top:110px;
+  background:var(--navy);
+  color:rgba(255,255,255,.68);
+  padding:88px 0 30px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+  gap:48px;
+  padding-bottom:48px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.footer h4{
+  margin:0 0 20px;
+  color:#fff;
+  font-size:16px;
+}
+.footer ul{
+  margin:0;padding:0;list-style:none;
+  display:grid;gap:12px;
+  font-size:15px;
+}
+.footer a:hover{color:#fff}
+.footer-about{max-width:370px;margin:20px 0 0}
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding-top:26px;
+  font-size:13.5px;
+}
+
+/* Responsive */
+@media(max-width:1150px){
+  .search-card{grid-template-columns:1fr;gap:28px}
+  .search-form{grid-template-columns:1fr 1fr}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .banner-grid{grid-template-columns:1fr}
+  .category-grid{grid-template-columns:repeat(2,1fr)}
+  .brand-grid{grid-template-columns:repeat(3,1fr)}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .service-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .container{width:min(1300px,100% - 24px)}
+  .topbar-group,.nav,.contact-mini{display:none}
+  .header-inner{grid-template-columns:auto auto;justify-content:space-between}
+  .burger{display:grid;place-items:center}
+  .hero{padding:40px 0 72px}
+  .hero-slider{height:420px}
+  .hero-slide{padding:28px 24px}
+  .hero h1{font-size:clamp(38px,11vw,56px)}
+  .hero-stats{grid-template-columns:1fr}
+  .hero-pagination{gap:8px}
+  .hero-pagination-bar{width:34px;height:5px}
+  .search-section{margin-top:-48px}
+  .search-card{padding:26px 20px}
+  .search-form{grid-template-columns:1fr}
+  .section{padding:76px 0}
+  .section-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .category-grid,.brand-grid,.feature-grid{grid-template-columns:1fr}
+  .banner{padding:28px;min-height:300px}
+  .cta{padding:40px 24px}
+  .cta-inner{grid-template-columns:1fr}
+  .footer{padding:64px 0 24px}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body:not(.site-unlocked) > :not(#site-lock) {
+  display: none !important;
+}
+
+#site-lock {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--navy, #071c38);
+}
+
+.site-lock-card {
+  width: min(420px, 100%);
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(0,0,0,.25);
+}
+
+.site-lock-card h2 {
+  margin: 0 0 20px;
+  color: var(--ink, #0f172a);
+}
+
+.site-lock-card input {
+  width: 100%;
+  min-height: 54px;
+  margin-bottom: 14px;
+  padding: 0 16px;
+  border: 1px solid var(--line, #dbe3ec);
+  border-radius: 12px;
+  font: inherit;
+}
+
+.site-lock-card button {
+  width: 100%;
+  min-height: 54px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--blue-600, #1157b0);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.site-lock-error {
+  margin: 12px 0 0;
+  color: #b42318;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="site-lock">
+  <form class="site-lock-card" id="site-lock-form">
+    <h2>Введите код доступа</h2>
+
+    <input
+      id="site-lock-code"
+      type="password"
+      placeholder="Код доступа"
+      autocomplete="off"
+      required
+    >
+
+    <button type="submit">Открыть сайт</button>
+
+    <p class="site-lock-error" id="site-lock-error" hidden>
+      Неверный код. Попробуйте ещё раз.
+    </p>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-group">
+      <a href="#">На всякий случай доп менюшка</a>
+      <a href="#">Кнопка 2</a>
+      <a href="#">Кнопка 3</a>
+    </div>
+    <div class="topbar-group">
+      <a href="mailto:info@scorpmash.ru">info@scorpmash.ru</a>
+      <a href="tel:+79826594620">+7 (982) 659-46-20</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="/">
+      <span class="logo-mark"><img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue%5F1.png" alt="Описание картинки"></span>
+      <span>
+        Scorpmash
+        <small>Инженерное оборудование</small>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="#categories">Категории</a>
+      <a href="#brands">Бренды</a>
+      <a href="#about">О компании</a>
+      <a href="#services">Услуги</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="contact-mini" href="tel:+79826594620">
+        <b>+7 (982) 659-46-20</b>
+      </a>
+      <a class="contact-mini" href="mailto:sale@scorpmash.ru">
+        <b>sale@scorpmash.ru</b>
+      </a>
+      <button class="burger" aria-label="Открыть меню">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-slider" id="hero-slider">
+
+        <!-- Первый слайд: текстовый баннер -->
+        <div class="hero-slide hero-slide-copy is-active" aria-hidden="false">
+          <div class="hero-inner">
+            <span class="pill">
+              <span class="dot"></span>
+              Производство и продажа инженерного оборудования
+            </span>
+
+            <h1>
+              Надежные решения
+              <span>для промышленности</span>
+            </h1>
+
+            <p class="lead">
+              Scorpmash — каталог промышленной продукции.
+
+              Оборудование с доставкой по всей РФ напрямую от произвдоств.
+            </p>
+          </div>
+        </div>
+
+        <!-- Слайды с изображениями. Рекомендуемый размер: 1920 × 700 px.
+             Замените путь в src на путь к вашему изображению. -->
+        <div class="hero-slide hero-slide-image" aria-hidden="true">
+          <img class="hero-banner-img" src="images/banner-1.jpg" alt="Баннер 1">
+        </div>
+        <div class="hero-slide hero-slide-image" aria-hidden="true">
+          <img class="hero-banner-img" src="images/banner-2.jpg" alt="Баннер 2">
+        </div>
+        <div class="hero-slide hero-slide-image" aria-hidden="true">
+          <img class="hero-banner-img" src="images/banner-3.jpg" alt="Баннер 3">
+        </div>
+
+      </div>
+
+      <!-- Полоски показывают прогресс и переключают слайды по нажатию -->
+      <div class="hero-pagination" role="group" aria-label="Переключение баннеров">
+        <button class="hero-pagination-bar is-active" type="button" aria-label="Показать слайд 1" aria-pressed="true"></button>
+        <button class="hero-pagination-bar" type="button" aria-label="Показать слайд 2" aria-pressed="false"></button>
+        <button class="hero-pagination-bar" type="button" aria-label="Показать слайд 3" aria-pressed="false"></button>
+        <button class="hero-pagination-bar" type="button" aria-label="Показать слайд 4" aria-pressed="false"></button>
+      </div>
+
+      <!-- Кнопки и статистика остаются ниже баннера, вне слайдера -->
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#categories">Перейти в каталог</a>
+        <a class="btn btn-outline" href="#brands">Выбрать бренд</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <b>10+</b>
+          <span>брендов в каталоге</span>
+        </div>
+        <div class="stat">
+          <b>1000+</b>
+          <span>артикулов</span>
+        </div>
+        <div class="stat">
+          <b>8</b>
+          <span>больших категорий</span>
+        </div>
+        <div class="stat">
+          <b>B2B</b>
+          <span>работа с юр. лицами</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEARCH BELOW HERO -->
+  <section class="search-section" id="search">
+    <div class="container">
+      <div class="search-card">
+
+        <div class="search-info">
+          <h2>Поиск по каталогу</h2>
+          <p>
+            Введите артикул или выберите категорию и бренд.
+            На страницах разделов отображаются таблицы доступных позиций.
+          </p>
+        </div>
+
+        <form class="search-form" action="#" method="get">
+          <div class="field">
+            <label for="article">Артикул</label>
+            <input id="article" name="article" type="text" placeholder="Например: SM-1024">
+          </div>
+
+          <div class="field">
+            <label for="category">Категория</label>
+            <select id="category" name="category">
+              <option value="">Все категории</option>
+              <option>Насосы</option>
+              <option>Электродвигатели</option>
+              <option>Подшипники</option>
+              <option>Редукторы</option>
+              <option>Гидравлика</option>
+              <option>Пневматика</option>
+              <option>Уплотнения</option>
+              <option>Запчасти</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="brand">Бренд</label>
+            <select id="brand" name="brand">
+              <option value="">Все бренды</option>
+              <option>Scorpmash</option>
+              <option>Brand A</option>
+              <option>Brand B</option>
+              <option>Brand C</option>
+              <option>Brand D</option>
+            </select>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Найти</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNERS -->
+  <section class="section tight">
+    <div class="container">
+      <div class="banner-grid">
+
+        <a class="banner banner-main" href="#categories">
+          <span class="banner-tag">Каталог продукции</span>
+          <h3>Оборудование и комплектующие
+для промышленных предприятий</h3>
+          <p>
+            Насосы, электродвигатели, редукторы, подшипники, гидравлика,
+            пневматика и запасные части — в едином структурированном каталоге.
+          </p>
+          <span class="btn btn-white">Смотреть категории</span>
+        </a>
+
+        <a class="banner banner-side" href="#brands">
+          <span class="banner-tag">По брендам</span>
+          <h3>Подбор продукции
+по производителю</h3>
+          <p>
+            Выберите бренд, чтобы перейти к категориям
+            и таблице артикулов.
+          </p>
+          <span class="btn btn-white">Все бренды</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section alt" id="categories">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <h2>Категории продукции</h2>
+          <p>
+            Каталог организован по техническим направлениям.
+
+            На странице каждой категории — перечень брендов и таблица артикулов.
+
+            ПОКА ЧТО ТУТ ИКОНКИ. ЗАМЕНЯТСЯ НА КРАСИВЫЕ КАРТИНКИ
+          </p>
+        </div>
+        <a class="section-link" href="#">Все категории →</a>
+      </div>
+
+      <div class="category-grid">
+        <a class="category" href="/category/pumps">
+          <div class="category-icon">⚙️</div>
+          <div>
+            <h3>Насосы</h3>
+            <p>Центробежные, шестерённые, вакуумные и дозировочные.</p>
+          </div>
+          <span class="category-count">Перейти →</span>
+        </a>
+
+        <a class="category" href="/category/motors">
+          <div class="category-icon">⚙️</div>
+          <div>
+            <h3>Электродвигатели</h3>
+            <p>Асинхронные, взрывозащищённые.</p>
+          </div>
+          <span class="category-count">Перейти →</span>
+        </a>
+
+        <a class="category" href="/category/bearings">
+          <div class="category-icon">⚙️</div>
+          <div>
+            <h3>Вентиляция</h3>
+            <p>Вентиляция и так далее.</p>
+          </div>
+          <span class="category-count">Перейти →</span>
+        </a>
+
+        <a class="category" href="/category/gearboxes">
+          <div class="category-icon">⚙️</div>
+          <div>
+            <h3>КИП</h3>
+            <p>Контрольно-измерительные приборы.</p>
+          </div>
+          <span class="category-count">Перейти →</span>
+        </a>
+
+        <a class="category" href="/category/hydraulics">
+          <div class="category-icon">⚙️</div>
+          <div>
+            <h3>УПД и ПО</h3>
+            <p>Устройства передачи данных и панели оператора.</p>
+          </div>
+          <span class="category-count">Перейти →</span>
+        </a>
+
+        <a class="category" href="/category/pneumatics">
+          <div class="category-icon">⚙️</div>
+          <div>
+            <h3>Электропитание</h3>
+            <p>Оборудование электропитания.</p>
+          </div>
+          <span class="category-count">Перейти →</span>
+        </a>
+
+        <a class="category" href="/category/seals">
+          <div class="category-icon">⚙️</div>
+          <div>
+            <h3>Запорная арматура</h3>
+            <p>Клапаны, и так далее.</p>
+          </div>
+          <span class="category-count">Перейти →</span>
+        </a>
+
+        <a class="category" href="/category/spare-parts">
+          <div class="category-icon">⚙️</div>
+          <div>
+            <h3>ПЧ и УПП</h3>
+            <p>Преобразователи частоты и устройства плавного пуска.</p>
+          </div>
+          <span class="category-count">Перейти →</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="section alt" id="brands">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <h2>Бренды и производители</h2>
+          <p>
+            Быстрый переход к продукции конкретного производителя:
+            категории, технические параметры и артикулы. СЮДА МОЖНО ВСТАВИТЬ ГЛАВНЫЕ, 1-2 ЛИНИИ, ОСТАЛЬНЫЕ НА ОТДЕЛЬНОЙ ВКЛАДКЕ
+          </p>
+        </div>
+        <a class="section-link" href="#">Все бренды →</a>
+      </div>
+
+      <div class="brand-grid">
+        <a class="brand" href="/brand/siemens">SIEMENS<span>картинка бренда</span></a>
+        <a class="brand" href="/brand/eldin">ELDIN<span>картинка бренда</span></a>
+        <a class="brand" href="/brand/cnp">CNP<span>картинка бренда</span></a>
+        <a class="brand" href="/brand/moxa">MOXA<span>картинка бренда</span></a>
+        <a class="brand" href="/brand/owen">ОВЕН<span>картинка бренда</span></a>
+        <a class="brand" href="/brand/velt">ВЭЛТ<span>картинка бренда</span></a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <h2>Почему выбирают Scorpmash</h2>
+          <p>Работаем с производственными предприятиями, сервисными организациями и оптовыми закупками.</p>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <span class="feature-num">01</span>
+          <h3>Подбор по артикулу</h3>
+          <p>Быстрый поиск позиции по обозначению, бренду и технической категории.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-num">02</span>
+          <h3>Структурированный каталог</h3>
+          <p>Продукция разделена по брендам и категориям, без лишних карточек и визуального шума.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-num">03</span>
+          <h3>Поставки под заказ</h3>
+          <p>Подберём отсутствующие позиции, предложим аналоги и согласуем сроки.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-num">04</span>
+          <h3>Работа с предприятиями</h3>
+          <p>Счета, договоры, спецификации и взаимодействие с отделом закупок.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section alt" id="services">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <h2>Дополнительные услуги</h2>
+          <p>Помогаем не только найти позицию, но и решить задачу по комплектации или ремонту.</p>
+        </div>
+      </div>
+
+      <div class="service-grid">
+        <div class="service">
+          <div class="service-icon">🔍</div>
+          <h3>Подбор аналогов</h3>
+          <p>Найдем замену снятой с производства или временно недоступной позиции.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">📦</div>
+          <h3>Комплектация заказов</h3>
+          <p>Сформируем спецификацию и соберем несколько позиций в одну поставку.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">📄</div>
+          <h3>Техническая консультация</h3>
+          <p>Поможем определить подходящую продукцию по параметрам оборудования.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="about">
+    <div class="container">
+
+      <div class="cta">
+        <div class="cta-inner">
+          <div>
+            <h2>Отправьте артикул —
+поможем с подбором</h2>
+            <p>
+              Пришлите артикул, модель оборудования или описание задачи.
+              Мы подскажем наличие, возможные аналоги и условия поставки.
+            </p>
+          </div>
+          <a class="btn btn-white" href="#contacts">Связаться с отделом продаж</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" id="contacts">
+  <div class="container">
+
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="/" style="color:#fff">
+          <span class="logo-mark"><img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue.png" alt="Описание картинки">
+</span>
+          <span>
+            Scorpmash
+            <small style="color:rgba(255,255,255,.5)">Промышленные решения</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Каталог промышленного оборудования, комплектующих и запасных частей.
+          Подбор продукции по брендам, техническим категориям и артикулам.
+        </p>
+      </div>
+
+      <div>
+        <h4>Каталог</h4>
+        <ul>
+          <li><a href="#categories">Категории</a></li>
+          <li><a href="#brands">Бренды</a></li>
+          <li><a href="#search">Поиск по каталогу</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="#about">О компании</a></li>
+          <li><a href="#services">Услуги</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+          <li><a href="mailto:info@scorpmash.ru">info@scorpmash.ru</a></li>
+          <li>Пн–Пт: 9:00–18:00</li>
+          <li>Адрес: уточняется</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Scorpmash. Все права защищены.</span>
+      <span>Политика конфиденциальности · Пользовательское соглашение</span>
+    </div>
+
+  </div>
+</footer>
+
+
+
+<script>
+(() => {
+  const slides = Array.from(document.querySelectorAll('.hero-slide'));
+  const bars = Array.from(document.querySelectorAll('.hero-pagination-bar'));
+  let currentSlide = 0;
+  let autoplay;
+
+  function showSlide(index) {
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      const active = i === currentSlide;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+
+    bars.forEach((bar, i) => {
+      bar.classList.remove('is-active');
+      bar.setAttribute('aria-pressed', String(i === currentSlide));
+    });
+
+    // Restart the active bar's 10-second fill animation, including when it is clicked again.
+    void bars[currentSlide].offsetWidth;
+    bars[currentSlide].classList.add('is-active');
+  }
+
+  function restartAutoplay() {
+    window.clearInterval(autoplay);
+    autoplay = window.setInterval(() => showSlide(currentSlide + 1), 10000);
+  }
+
+  bars.forEach((bar, index) => {
+    bar.addEventListener('click', () => {
+      showSlide(index);
+      restartAutoplay();
+    });
+  });
+
+  showSlide(0);
+  restartAutoplay();
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(() => {
+  const ACCESS_CODE = '6767';
+
+  const form = document.getElementById('site-lock-form');
+  const input = document.getElementById('site-lock-code');
+  const error = document.getElementById('site-lock-error');
+  const lock = document.getElementById('site-lock');
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    if (input.value.trim() === ACCESS_CODE) {
+      document.body.classList.add('site-unlocked');
+      lock.remove();
+    } else {
+      error.hidden = false;
+      input.focus();
+      input.select();
+    }
+  });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
