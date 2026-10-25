@@ -115,7 +115,11 @@ button{font:inherit}
   gap:20px;
   min-height:46px;
 }
-.topbar-group{display:flex;gap:26px}
+.topbar-group{
+  display:flex;
+  gap:26px;
+  flex-wrap:wrap;
+}
 .topbar a:hover{color:#fff}
 
 /* Header */
@@ -129,9 +133,9 @@ button{font:inherit}
 }
 .header-inner{
   display:grid;
-  grid-template-columns:auto 1fr auto;
+  grid-template-columns:auto minmax(0,1fr) auto;
   align-items:center;
-  gap:32px;
+  gap:28px;
   min-height:86px;
 }
 .logo{
@@ -141,13 +145,23 @@ button{font:inherit}
   font-size:23px;
   font-weight:800;
   letter-spacing:-.03em;
+  min-width:0;
 }
 .logo-mark{
-  width:60px;height:60px;
-  border-radius:0px;
-  display:grid;place-items:center;
+  width:60px;
+  height:60px;
+  flex:0 0 auto;
+  border-radius:0;
+  display:grid;
+  place-items:center;
   color:#fff;
   font-size:20px;
+  overflow:hidden;
+}
+.logo-mark img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 .logo small{
   display:block;
@@ -157,7 +171,12 @@ button{font:inherit}
   letter-spacing:.06em;
   text-transform:uppercase;
 }
-.nav{display:flex;justify-content:center;gap:4px}
+.nav{
+  display:flex;
+  justify-content:center;
+  gap:4px;
+  min-width:0;
+}
 .nav a{
   padding:12px 16px;
   border-radius:12px;
@@ -165,20 +184,19 @@ button{font:inherit}
   font-size:15px;
   color:#42526b;
   transition:.2s;
+  white-space:nowrap;
 }
 .nav a:hover{color:var(--blue-800);background:var(--blue-50)}
 .nav a.active{
   color:var(--blue-800);
   background:var(--blue-100);
 }
-/* Header actions */
 .header-actions{
   display:flex;
   align-items:center;
   gap:14px;
   min-width:0;
 }
-
 .contact-mini{
   text-align:right;
   min-width:0;
@@ -193,7 +211,6 @@ button{font:inherit}
   font-size:12px;
   color:var(--muted);
 }
-
 .burger{
   display:none;
   width:50px;
@@ -274,7 +291,8 @@ button{font:inherit}
   font-weight:700;
 }
 .dot{
-  width:8px;height:8px;
+  width:8px;
+  height:8px;
   border-radius:50%;
   background:#4ade80;
   box-shadow:0 0 0 5px rgba(74,222,128,.18);
@@ -295,7 +313,11 @@ button{font:inherit}
   font-size:19px;
   color:rgba(255,255,255,.78);
 }
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
 .hero .hero-actions{margin-top:26px}
 
 .hero-stats{
@@ -371,7 +393,7 @@ button{font:inherit}
   grid-template-columns:1.1fr 1.6fr;
   gap:40px;
   align-items:center;
-  margin-top: 35px;
+  margin-top:35px;
 }
 .search-info h2{
   margin:0 0 12px;
@@ -535,7 +557,9 @@ button{font:inherit}
 .category::before{
   content:"";
   position:absolute;
-  left:0;right:0;top:0;
+  left:0;
+  right:0;
+  top:0;
   height:4px;
   background:var(--blue-600);
   transform:scaleX(0);
@@ -549,9 +573,11 @@ button{font:inherit}
 }
 .category:hover::before{transform:scaleX(1)}
 .category-icon{
-  width:62px;height:62px;
+  width:62px;
+  height:62px;
   border-radius:17px;
-  display:grid;place-items:center;
+  display:grid;
+  place-items:center;
   font-size:26px;
   background:var(--blue-100);
 }
@@ -627,7 +653,8 @@ button{font:inherit}
 .feature-num{
   display:inline-grid;
   place-items:center;
-  width:48px;height:48px;
+  width:48px;
+  height:48px;
   margin-bottom:22px;
   border-radius:14px;
   background:var(--blue-700);
@@ -717,10 +744,12 @@ tbody tr:last-child td{border-bottom:0}
   box-shadow:var(--shadow-sm);
 }
 .service-icon{
-  width:60px;height:60px;
+  width:60px;
+  height:60px;
   margin-bottom:24px;
   border-radius:17px;
-  display:grid;place-items:center;
+  display:grid;
+  place-items:center;
   font-size:25px;
   background:var(--blue-100);
 }
@@ -739,7 +768,7 @@ tbody tr:last-child td{border-bottom:0}
     radial-gradient(800px 400px at 92% 90%,rgba(6,42,92,.8),transparent),
     linear-gradient(120deg,var(--blue-900),var(--navy));
   box-shadow:var(--shadow-lg);
-  top: 50px;
+  top:50px;
 }
 .cta-inner{
   position:relative;
@@ -781,12 +810,18 @@ tbody tr:last-child td{border-bottom:0}
   font-size:16px;
 }
 .footer ul{
-  margin:0;padding:0;list-style:none;
-  display:grid;gap:12px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:12px;
   font-size:15px;
 }
 .footer a:hover{color:#fff}
-.footer-about{max-width:370px;margin:20px 0 0}
+.footer-about{
+  max-width:370px;
+  margin:20px 0 0;
+}
 .footer-bottom{
   display:flex;
   align-items:center;
@@ -807,12 +842,50 @@ tbody tr:last-child td{border-bottom:0}
   .feature-grid{grid-template-columns:repeat(2,1fr)}
   .service-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:repeat(2,1fr)}
+
+  .header-inner{gap:18px}
+  .nav a{padding:10px 12px;font-size:14px}
+
+  /* Прячем email, номер оставляем */
+  .contact-mini[href^="mailto"]{display:none}
 }
+
 @media(max-width:760px){
   .container{width:min(1300px,100% - 24px)}
-  .topbar-group,.nav{display:none}
-  .header-inner{grid-template-columns:auto auto;justify-content:space-between}
-  .burger{display:grid;place-items:center}
+
+  /* Верхняя полоса остаётся */
+  .topbar-group{display:none}
+
+  /* Меню прячем */
+  .nav{display:none}
+
+  /* В шапке НЕ показываем номер и почту */
+  .header-actions .contact-mini{display:none}
+
+  .header-inner{
+    grid-template-columns:minmax(0,1fr) auto;
+    justify-content:space-between;
+    gap:12px;
+    min-height:72px;
+  }
+
+  .logo{
+    gap:10px;
+    font-size:19px;
+  }
+  .logo-mark{
+    width:44px;
+    height:44px;
+  }
+  .logo small{
+    font-size:9.5px;
+  }
+
+  .burger{
+    display:grid;
+    place-items:center;
+  }
+
   .hero{padding:40px 0 72px}
   .hero-slider{height:420px}
   .hero-slide{padding:28px 24px}
@@ -834,170 +907,65 @@ tbody tr:last-child td{border-bottom:0}
   .footer-bottom{flex-direction:column;align-items:flex-start}
 }
 
-/* На планшетах прячем только email, номер оставляем */
-@media(max-width:1150px){
-  .contact-mini[href^="mailto"]{
-    display:none;
-  }
+/* Site lock */
+body:not(.site-unlocked) > :not(#site-lock){
+  display:none !important;
 }
 
-/* На телефонах: только логотип и бургер */
-@media(max-width:760px){
-  .header-inner{
-    grid-template-columns:minmax(0,1fr) auto;
-    gap:12px;
-    min-height:72px;
-  }
-
-  .logo{
-    gap:10px;
-    font-size:19px;
-    min-width:0;
-  }
-
-  .logo-mark{
-    width:44px;
-    height:44px;
-    flex:0 0 auto;
-  }
-
-  .logo-mark img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-  }
-
-  .logo small{
-    font-size:9.5px;
-  }
-
-  /* Прячем контакты из шапки, но НЕ трогаем верхнюю полосу и футер */
-  .header-actions .contact-mini{
-    display:none;
-  }
-
-  .burger{
-    display:grid;
-    place-items:center;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-body:not(.site-unlocked) > :not(#site-lock) {
-  display: none !important;
+#site-lock{
+  position:fixed;
+  inset:0;
+  z-index:999999;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  background:var(--navy,#071c38);
 }
 
-#site-lock {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background: var(--navy, #071c38);
+.site-lock-card{
+  width:min(420px,100%);
+  padding:32px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 24px 70px rgba(0,0,0,.25);
 }
 
-.site-lock-card {
-  width: min(420px, 100%);
-  padding: 32px;
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 24px 70px rgba(0,0,0,.25);
+.site-lock-card h2{
+  margin:0 0 20px;
+  color:var(--ink,#0f172a);
 }
 
-.site-lock-card h2 {
-  margin: 0 0 20px;
-  color: var(--ink, #0f172a);
+.site-lock-card input{
+  width:100%;
+  min-height:54px;
+  margin-bottom:14px;
+  padding:0 16px;
+  border:1px solid var(--line,#dbe3ec);
+  border-radius:12px;
+  font:inherit;
 }
 
-.site-lock-card input {
-  width: 100%;
-  min-height: 54px;
-  margin-bottom: 14px;
-  padding: 0 16px;
-  border: 1px solid var(--line, #dbe3ec);
-  border-radius: 12px;
-  font: inherit;
+.site-lock-card button{
+  width:100%;
+  min-height:54px;
+  border:0;
+  border-radius:12px;
+  background:var(--blue-600,#1157b0);
+  color:#fff;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
 }
 
-.site-lock-card button {
-  width: 100%;
-  min-height: 54px;
-  border: 0;
-  border-radius: 12px;
-  background: var(--blue-600, #1157b0);
-  color: #fff;
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
+.site-lock-error{
+  margin:12px 0 0;
+  color:#b42318;
 }
-
-.site-lock-error {
-  margin: 12px 0 0;
-  color: #b42318;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 </head>
 
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="site-lock">
   <form class="site-lock-card" id="site-lock-form">
@@ -1019,28 +987,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
   </form>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="topbar">
   <div class="container topbar-inner">
     <div class="topbar-group">
@@ -1058,7 +1004,9 @@ body:not(.site-unlocked) > :not(#site-lock) {
 <header class="header">
   <div class="container header-inner">
     <a class="logo" href="/">
-      <span class="logo-mark"><img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue%5F1.png" alt="Описание картинки"></span>
+      <span class="logo-mark">
+        <img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue%5F1.png" alt="Scorpmash">
+      </span>
       <span>
         Scorpmash
         <small>Инженерное оборудование</small>
@@ -1087,13 +1035,11 @@ body:not(.site-unlocked) > :not(#site-lock) {
 
 <main>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
 
       <div class="hero-slider" id="hero-slider">
 
-        <!-- Первый слайд: текстовый баннер -->
         <div class="hero-slide hero-slide-copy is-active" aria-hidden="false">
           <div class="hero-inner">
             <span class="pill">
@@ -1108,27 +1054,25 @@ body:not(.site-unlocked) > :not(#site-lock) {
 
             <p class="lead">
               Scorpmash — каталог промышленной продукции.
-
-              Оборудование с доставкой по всей РФ напрямую от произвдоств.
+              Оборудование с доставкой по всей РФ напрямую от производств.
             </p>
           </div>
         </div>
 
-        <!-- Слайды с изображениями. Рекомендуемый размер: 1920 × 700 px.
-             Замените путь в src на путь к вашему изображению. -->
         <div class="hero-slide hero-slide-image" aria-hidden="true">
           <img class="hero-banner-img" src="images/banner-1.jpg" alt="Баннер 1">
         </div>
+
         <div class="hero-slide hero-slide-image" aria-hidden="true">
           <img class="hero-banner-img" src="images/banner-2.jpg" alt="Баннер 2">
         </div>
+
         <div class="hero-slide hero-slide-image" aria-hidden="true">
           <img class="hero-banner-img" src="images/banner-3.jpg" alt="Баннер 3">
         </div>
 
       </div>
 
-      <!-- Полоски показывают прогресс и переключают слайды по нажатию -->
       <div class="hero-pagination" role="group" aria-label="Переключение баннеров">
         <button class="hero-pagination-bar is-active" type="button" aria-label="Показать слайд 1" aria-pressed="true"></button>
         <button class="hero-pagination-bar" type="button" aria-label="Показать слайд 2" aria-pressed="false"></button>
@@ -1136,7 +1080,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
         <button class="hero-pagination-bar" type="button" aria-label="Показать слайд 4" aria-pressed="false"></button>
       </div>
 
-      <!-- Кнопки и статистика остаются ниже баннера, вне слайдера -->
       <div class="hero-actions">
         <a class="btn btn-primary" href="#categories">Перейти в каталог</a>
         <a class="btn btn-outline" href="#brands">Выбрать бренд</a>
@@ -1164,7 +1107,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
     </div>
   </section>
 
-  <!-- SEARCH BELOW HERO -->
   <section class="search-section" id="search">
     <div class="container">
       <div class="search-card">
@@ -1217,15 +1159,13 @@ body:not(.site-unlocked) > :not(#site-lock) {
     </div>
   </section>
 
-  <!-- BANNERS -->
   <section class="section tight">
     <div class="container">
       <div class="banner-grid">
 
         <a class="banner banner-main" href="#categories">
           <span class="banner-tag">Каталог продукции</span>
-          <h3>Оборудование и комплектующие
-для промышленных предприятий</h3>
+          <h3>Оборудование и комплектующие для промышленных предприятий</h3>
           <p>
             Насосы, электродвигатели, редукторы, подшипники, гидравлика,
             пневматика и запасные части — в едином структурированном каталоге.
@@ -1235,11 +1175,9 @@ body:not(.site-unlocked) > :not(#site-lock) {
 
         <a class="banner banner-side" href="#brands">
           <span class="banner-tag">По брендам</span>
-          <h3>Подбор продукции
-по производителю</h3>
+          <h3>Подбор продукции по производителю</h3>
           <p>
-            Выберите бренд, чтобы перейти к категориям
-            и таблице артикулов.
+            Выберите бренд, чтобы перейти к категориям и таблице артикулов.
           </p>
           <span class="btn btn-white">Все бренды</span>
         </a>
@@ -1248,7 +1186,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
     </div>
   </section>
 
-  <!-- CATEGORIES -->
   <section class="section alt" id="categories">
     <div class="container">
 
@@ -1257,10 +1194,7 @@ body:not(.site-unlocked) > :not(#site-lock) {
           <h2>Категории продукции</h2>
           <p>
             Каталог организован по техническим направлениям.
-
             На странице каждой категории — перечень брендов и таблица артикулов.
-
-            ПОКА ЧТО ТУТ ИКОНКИ. ЗАМЕНЯТСЯ НА КРАСИВЫЕ КАРТИНКИ
           </p>
         </div>
         <a class="section-link" href="#">Все категории →</a>
@@ -1285,16 +1219,16 @@ body:not(.site-unlocked) > :not(#site-lock) {
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/bearings">
+        <a class="category" href="/category/ventilation">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>Вентиляция</h3>
-            <p>Вентиляция и так далее.</p>
+            <p>Вентиляционное оборудование и комплектующие.</p>
           </div>
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/gearboxes">
+        <a class="category" href="/category/instruments">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>КИП</h3>
@@ -1303,7 +1237,7 @@ body:not(.site-unlocked) > :not(#site-lock) {
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/hydraulics">
+        <a class="category" href="/category/data">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>УПД и ПО</h3>
@@ -1312,7 +1246,7 @@ body:not(.site-unlocked) > :not(#site-lock) {
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/pneumatics">
+        <a class="category" href="/category/power">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>Электропитание</h3>
@@ -1321,16 +1255,16 @@ body:not(.site-unlocked) > :not(#site-lock) {
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/seals">
+        <a class="category" href="/category/valves">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>Запорная арматура</h3>
-            <p>Клапаны, и так далее.</p>
+            <p>Клапаны, задвижки и другая арматура.</p>
           </div>
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/spare-parts">
+        <a class="category" href="/category/drives">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>ПЧ и УПП</h3>
@@ -1343,7 +1277,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
     </div>
   </section>
 
-  <!-- BRANDS -->
   <section class="section alt" id="brands">
     <div class="container">
 
@@ -1352,7 +1285,7 @@ body:not(.site-unlocked) > :not(#site-lock) {
           <h2>Бренды и производители</h2>
           <p>
             Быстрый переход к продукции конкретного производителя:
-            категории, технические параметры и артикулы. СЮДА МОЖНО ВСТАВИТЬ ГЛАВНЫЕ, 1-2 ЛИНИИ, ОСТАЛЬНЫЕ НА ОТДЕЛЬНОЙ ВКЛАДКЕ
+            категории, технические параметры и артикулы.
           </p>
         </div>
         <a class="section-link" href="#">Все бренды →</a>
@@ -1370,8 +1303,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
     </div>
   </section>
 
-
-  <!-- FEATURES -->
   <section class="section">
     <div class="container">
 
@@ -1408,7 +1339,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="section alt" id="services">
     <div class="container">
 
@@ -1440,15 +1370,13 @@ body:not(.site-unlocked) > :not(#site-lock) {
     </div>
   </section>
 
-  <!-- CTA -->
   <section id="about">
     <div class="container">
 
       <div class="cta">
         <div class="cta-inner">
           <div>
-            <h2>Отправьте артикул —
-поможем с подбором</h2>
+            <h2>Отправьте артикул — поможем с подбором</h2>
             <p>
               Пришлите артикул, модель оборудования или описание задачи.
               Мы подскажем наличие, возможные аналоги и условия поставки.
@@ -1457,6 +1385,7 @@ body:not(.site-unlocked) > :not(#site-lock) {
           <a class="btn btn-white" href="#contacts">Связаться с отделом продаж</a>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1468,8 +1397,9 @@ body:not(.site-unlocked) > :not(#site-lock) {
     <div class="footer-grid">
       <div>
         <a class="logo" href="/" style="color:#fff">
-          <span class="logo-mark"><img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue.png" alt="Описание картинки">
-</span>
+          <span class="logo-mark">
+            <img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue.png" alt="Scorpmash">
+          </span>
           <span>
             Scorpmash
             <small style="color:rgba(255,255,255,.5)">Промышленные решения</small>
@@ -1501,7 +1431,7 @@ body:not(.site-unlocked) > :not(#site-lock) {
       <div>
         <h4>Контакты</h4>
         <ul>
-          <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+          <li><a href="tel:+79826594620">+7 (982) 659-46-20</a></li>
           <li><a href="mailto:info@scorpmash.ru">info@scorpmash.ru</a></li>
           <li>Пн–Пт: 9:00–18:00</li>
           <li>Адрес: уточняется</li>
@@ -1516,8 +1446,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
 
   </div>
 </footer>
-
-
 
 <script>
 (() => {
@@ -1540,7 +1468,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
       bar.setAttribute('aria-pressed', String(i === currentSlide));
     });
 
-    // Restart the active bar's 10-second fill animation, including when it is clicked again.
     void bars[currentSlide].offsetWidth;
     bars[currentSlide].classList.add('is-active');
   }
@@ -1561,19 +1488,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
   restartAutoplay();
 })();
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script>
 (() => {
@@ -1598,32 +1512,6 @@ body:not(.site-unlocked) > :not(#site-lock) {
   });
 })();
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
