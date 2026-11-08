@@ -125,9 +125,7 @@ button{font:inherit}
   padding:12px 0;
 }
 .toolbar-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.search-box{
-  position:relative;flex:1 1 320px;min-width:240px;
-}
+.search-box{position:relative;flex:1 1 320px;min-width:240px}
 .search-box input{
   width:100%;min-height:48px;padding:0 16px 0 44px;
   border:1.5px solid var(--line);border-radius:12px;background:#fff;
@@ -197,9 +195,7 @@ tbody tr:last-child td{border-bottom:0}
 .btn-more:hover{background:var(--blue-600);color:#fff}
 .btn-more[hidden]{display:none}
 
-.no-results{
-  padding:22px 20px;font-size:14px;color:var(--muted);display:none;
-}
+.no-results{padding:22px 20px;font-size:14px;color:var(--muted);display:none}
 .table-block.is-empty .no-results{display:block}
 .table-block.is-empty table{display:none}
 .table-block.is-empty .table-foot{display:none}
@@ -267,28 +263,10 @@ tbody tr:last-child td{border-bottom:0}
   .footer-grid{grid-template-columns:1fr;gap:32px}
   .footer-bottom{flex-direction:column;align-items:flex-start}
 }
-
-/* Site lock */
-body:not(.site-unlocked) > :not(#site-lock){display:none !important}
-#site-lock{position:fixed;inset:0;z-index:999999;display:grid;place-items:center;padding:24px;background:var(--navy,#071c38)}
-.site-lock-card{width:min(420px,100%);padding:32px;border:1px solid rgba(255,255,255,.2);border-radius:20px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.25)}
-.site-lock-card h2{margin:0 0 20px;color:var(--ink,#0f172a)}
-.site-lock-card input{width:100%;min-height:54px;margin-bottom:14px;padding:0 16px;border:1px solid var(--line,#dbe3ec);border-radius:12px;font:inherit}
-.site-lock-card button{width:100%;min-height:54px;border:0;border-radius:12px;background:var(--blue-600,#1157b0);color:#fff;font:inherit;font-weight:700;cursor:pointer}
-.site-lock-error{margin:12px 0 0;color:#b42318}
 </style>
 </head>
 
 <body>
-
-<div id="site-lock">
-  <form class="site-lock-card" id="site-lock-form">
-    <h2>Введите код доступа</h2>
-    <input id="site-lock-code" type="password" placeholder="Код доступа" autocomplete="off" required>
-    <button type="submit">Открыть сайт</button>
-    <p class="site-lock-error" id="site-lock-error" hidden>Неверный код. Попробуйте ещё раз.</p>
-  </form>
-</div>
 
 <div class="topbar">
   <div class="container topbar-inner">
@@ -760,26 +738,6 @@ body:not(.site-unlocked) > :not(#site-lock){display:none !important}
 </footer>
 
 <script>
-(() => {
-  const ACCESS_CODE = '6767';
-  const form = document.getElementById('site-lock-form');
-  const input = document.getElementById('site-lock-code');
-  const error = document.getElementById('site-lock-error');
-  const lock = document.getElementById('site-lock');
-
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (input.value.trim() === ACCESS_CODE) {
-      document.body.classList.add('site-unlocked');
-      lock.remove();
-    } else {
-      error.hidden = false;
-      input.focus();
-      input.select();
-    }
-  });
-})();
-
 /* Catalog: show 10, "show more" by 10, search filter */
 (() => {
   const PAGE = 10;
@@ -796,16 +754,13 @@ body:not(.site-unlocked) > :not(#site-lock){display:none !important}
     let visible = PAGE;
 
     function render() {
-      // Сначала считаем строки, прошедшие фильтр
       const matched = rows.filter(r => r.dataset.match !== '0');
       const total = matched.length;
       countEl.textContent = total + ' ' + plural(total, ['позиция','позиции','позиций']);
 
-      // Скрываем/показываем
       rows.forEach(r => { r.hidden = true; });
       matched.forEach((r, i) => { r.hidden = i >= visible; });
 
-      // Футер
       if (total === 0) {
         block.classList.add('is-empty');
         foot.hidden = true;
@@ -837,7 +792,6 @@ body:not(.site-unlocked) > :not(#site-lock){display:none !important}
     block._resetVisible = () => { visible = PAGE; };
     block._rows = rows;
 
-    // Первичный рендер
     rows.forEach(r => { r.dataset.match = '1'; });
     render();
   });
@@ -849,9 +803,7 @@ body:not(.site-unlocked) > :not(#site-lock){display:none !important}
     return forms[2];
   }
 
-  // Поиск
   const search = document.getElementById('catalog-search');
-  const stack = document.getElementById('catalog-stack');
 
   search.addEventListener('input', () => {
     const q = search.value.trim().toLowerCase();
@@ -868,7 +820,6 @@ body:not(.site-unlocked) > :not(#site-lock){display:none !important}
       block._render();
     });
 
-    // Показываем только те блоки, где есть совпадения
     if (q) {
       blocks.forEach(block => {
         const has = block._rows.some(r => r.dataset.match === '1');
