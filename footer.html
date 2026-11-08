@@ -1,8 +1,30 @@
+<style>
+  /* Стили для подвала */
+  .footer{margin-top:60px;background:#071c38;color:rgba(255,255,255,.68);padding:70px 0 30px}
+  .footer .container{width:min(1300px,100% - 40px);margin-inline:auto}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .footer h4{margin:0 0 20px;color:#fff;font-size:16px}
+  .footer ul{margin:0;padding:0;list-style:none;display:grid;gap:12px;font-size:15px}
+  .footer a{text-decoration:none;color:inherit}
+  .footer a:hover{color:#fff}
+  .footer-about{max-width:370px;margin:20px 0 0}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:26px;font-size:13.5px}
+  .footer .logo{display:flex;align-items:center;gap:14px;font-size:23px;font-weight:800;letter-spacing:-.03em;text-decoration:none;color:#fff}
+  .footer .logo-mark{width:60px;height:60px;display:grid;place-items:center}
+  .footer .logo small{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  
+  @media(max-width:760px){
+    .footer{padding:50px 0 24px}
+    .footer-grid{grid-template-columns:1fr;gap:32px}
+    .footer-bottom{flex-direction:column;align-items:flex-start}
+  }
+</style>
+
 <footer class="footer" id="contacts">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="logo" href="/" style="color:#fff">
+        <a class="logo" href="/">
           <span class="logo-mark">
             <img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue.png" alt="Scorpmash">
           </span>
@@ -19,16 +41,15 @@
       <div>
         <h4>Каталог</h4>
         <ul>
-          <li><a href="/#categories">Категории</a></li>
-          <li><a href="/#brands">Бренды</a></li>
-          <li><a href="/#search">Поиск по каталогу</a></li>
+          <li><a href="/category">Категории</a></li>
+          <li><a href="/brand">Бренды</a></li>
         </ul>
       </div>
       <div>
         <h4>Компания</h4>
         <ul>
-          <li><a href="/#about">О компании</a></li>
-          <li><a href="/#services">Услуги</a></li>
+          <li><a href="/#about">Кнопка 1</a></li>
+          <li><a href="/#services">Кнопка 2</a></li>
         </ul>
       </div>
       <div>
