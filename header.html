@@ -37,10 +37,10 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-group">
-      <a href="/#categories">О категориях</a>
-      <a href="/#brands">О брендах</a>
-      <a href="/#about">О компании</a>
-      <a href="/#services">Услуги</a>
+      <a href="/scorpmash/#categories">О категориях</a>
+      <a href="/scorpmash/#brands">О брендах</a>
+      <a href="/scorpmash/#about">О компании</a>
+      <a href="/scorpmash/#services">Услуги</a>
     </div>
     <div class="topbar-group">
       <a href="mailto:info@scorpmash.ru">info@scorpmash.ru</a>
@@ -51,7 +51,7 @@
 
 <header class="header">
   <div class="header-inner">
-    <a class="logo" href="/">
+    <a class="logo" href="/scorpmash/">
       <span class="logo-mark">
         <img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue%5F1.png" alt="Scorpmash">
       </span>
@@ -61,9 +61,9 @@
       </span>
     </a>
     <nav class="nav">
-      <a href="/#categories" data-nav="categories">Категории</a>
-      <a href="/#brands" data-nav="brands">Бренды</a>
-      <a href="/#contacts" data-nav="contacts">Контакты</a>
+      <a href="/scorpmash/category/frequency_converters/" data-nav="categories">Категории</a>
+      <a href="/scorpmash/brand/siemens/" data-nav="brands">Бренды</a>
+      <a href="/scorpmash/contacts" data-nav="contacts">Контакты</a>
     </nav>
     <div class="header-actions">
       <a class="contact-mini" href="tel:+79826594620"><b>+7 (982) 659-46-20</b></a>
@@ -74,13 +74,19 @@
 </header>
 
 <script>
-  // Этот скрипт запускается только когда шапка уже вставилась на страницу
+  // Умная подсветка меню на основе URL
   (function() {
-    const currentPath = window.location.pathname;
+    const path = window.location.pathname;
+    
     document.querySelectorAll('.nav a').forEach(link => {
-      // Если мы в папке brand или category, подсвечиваем нужную кнопку
-      if (currentPath.includes('/brand/') && link.dataset.nav === 'brands') link.classList.add('active');
-      if (currentPath.includes('/category/') && link.dataset.nav === 'categories') link.classList.add('active');
+      // Если в пути есть 'brand' и это кнопка Бренды — зажигаем
+      if (path.includes('/brand/') && link.dataset.nav === 'brands') {
+        link.classList.add('active');
+      }
+      // Если в пути есть 'category' и это кнопка Категории — зажигаем
+      if (path.includes('/category/') && link.dataset.nav === 'categories') {
+        link.classList.add('active');
+      }
     });
   })();
 </script>
