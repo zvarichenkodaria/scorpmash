@@ -17,7 +17,6 @@
   --ink:#0f172a;
   --muted:#5b6b7f;
   --line:#dbe3ec;
-
   --blue-900:#062a5c;
   --blue-800:#0a3d7c;
   --blue-700:#0d4b96;
@@ -25,15 +24,12 @@
   --blue-500:#1c69cf;
   --blue-100:#e3edfb;
   --blue-50:#f0f5fd;
-
   --navy:#071c38;
   --navy-2:#0b2547;
-
   --green:#15803d;
   --green-bg:#e7f6ed;
   --amber:#b45309;
   --amber-bg:#fff3e0;
-
   --radius:18px;
   --radius-lg:26px;
   --shadow-sm:0 4px 18px rgba(9,30,66,.06);
@@ -81,6 +77,24 @@ button{font:inherit}
   background:var(--blue-50);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--blue-800);
 }
 
+/* Toolbar */
+.catalog-toolbar{
+  position:sticky;top:132px;z-index:60;
+  background:rgba(244,247,251,.94);
+  backdrop-filter:blur(10px);
+  border-block:1px solid var(--line);
+  padding:12px 0;
+}
+.toolbar-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.search-box{position:relative;flex:1 1 320px;min-width:240px}
+.search-box input{
+  width:100%;min-height:48px;padding:0 16px 0 44px;
+  border:1.5px solid var(--line);border-radius:12px;background:#fff;
+  font:inherit;font-size:14.5px;color:var(--ink);transition:.2s;
+}
+.search-box input:focus{outline:none;border-color:var(--blue-600);box-shadow:0 0 0 4px rgba(17,87,176,.12)}
+.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+
 /* Sections */
 .section{padding:0 0 44px 0}
 
@@ -119,30 +133,33 @@ tbody tr:last-child td{border-bottom:0}
 }
 .in-stock{background:var(--green-bg);color:var(--green)}
 .on-order{background:var(--amber-bg);color:var(--amber)}
+.empty-state{padding:40px;text-align:center;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
 
 /* Responsive */
 @media(max-width:1150px){
   .brand-head-inner{grid-template-columns:1fr;gap:20px}
   .brand-head-logo{width:100px;height:100px}
 }
-
+@media(max-width:900px){
+  .catalog-toolbar{top:0;}
+}
 @media(max-width:760px){
   .container{width:min(1300px,100% - 24px)}
   .breadcrumbs{padding-top:16px}
   .brand-head{padding:18px 0 24px}
   .brand-head-copy h1{font-size:clamp(24px,7vw,32px)}
   .brand-head-copy p{font-size:14.5px}
-
   th,td{padding:8px 12px;font-size:12.5px}
   th{padding:9px 12px;font-size:10.5px}
   .table-head{padding:12px 14px}
+  .toolbar-inner{gap:10px}
+  .search-box{flex:1 1 100%}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ЗАГЛУШКА ДЛЯ ШАПКИ -->
 <div id="header-placeholder"></div>
 
 <main>
@@ -150,8 +167,8 @@ tbody tr:last-child td{border-bottom:0}
   <div class="container">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <ol>
-        <li><a href="/">Главная</a></li>
-        <li><a href="/#brands">Бренды</a></li>
+        <li><a href="/scorpmash/">Главная</a></li>
+        <li><a href="/scorpmash/#brands">Бренды</a></li>
         <li>SIEMENS</li>
       </ol>
     </nav>
@@ -182,6 +199,21 @@ tbody tr:last-child td{border-bottom:0}
     </div>
   </section>
 
+  <!-- ПАНЕЛЬ ПОИСКА -->
+  <div class="catalog-toolbar">
+    <div class="container">
+      <div class="toolbar-inner">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20l-3.5-3.5"></path>
+          </svg>
+          <input id="catalog-search" type="search" placeholder="Поиск по артикулу или названию…" autocomplete="off">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="section">
     <div class="container">
       <div class="table-stack" id="catalog-stack"></div>
@@ -190,13 +222,11 @@ tbody tr:last-child td{border-bottom:0}
 
 </main>
 
-<!-- ЗАГЛУШКА ДЛЯ ПОДВАЛА -->
 <div id="footer-placeholder"></div>
 
 <!-- ЕДИНЫЙ СКРИПТ ДЛЯ ЗАГРУЗКИ ШАПКИ И ПОДВАЛА -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Загружаем шапку
   fetch('/scorpmash/header.html')
     .then(res => res.text())
     .then(html => {
@@ -206,7 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (placeholder) placeholder.replaceWith(...temp.childNodes);
     });
 
-  // Загружаем подвал
   fetch('/scorpmash/footer.html')
     .then(res => res.text())
     .then(html => {
@@ -218,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- ВАШ ОРИГИНАЛЬНЫЙ СКРИПТ -->
+<!-- СКРИПТ БРЕНДА С ПОИСКОМ -->
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
   try {
@@ -226,7 +255,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!response.ok) throw new Error('Ошибка загрузки JSON');
     const products = await response.json();
 
-    // Функция для правильного склонения слова "позиция"
     function plural(n, forms) {
       const n10 = n % 10, n100 = n % 100;
       if (n10 === 1 && n100 !== 11) return forms[0];
@@ -234,97 +262,104 @@ document.addEventListener('DOMContentLoaded', async () => {
       return forms[2];
     }
 
-    // Мета-данные
     const uniqueCats = new Set(products.map(p => p.category));
     document.getElementById('meta-cats').textContent = uniqueCats.size + ' ' + plural(uniqueCats.size, ['категория', 'категории', 'категорий']);
     document.getElementById('meta-items').textContent = products.length + ' ' + plural(products.length, ['артикул', 'артикула', 'артикулов']);
 
-    // Группируем по КАТЕГОРИЯМ, внутри — по ПОДКАТЕГОРИЯМ
-    const groupedByCategory = products.reduce((acc, p) => {
-      if (!acc[p.category]) {
-        acc[p.category] = { 
-          name: p.categoryName, 
-          subcategories: {} 
-        };
-      }
-      
-      const subcatKey = p.subcategory || 'other';
-      const subcatName = p.subcategoryName || 'Прочее';
-      
-      if (!acc[p.category].subcategories[subcatKey]) {
-        acc[p.category].subcategories[subcatKey] = { name: subcatName, items: [] };
-      }
-      
-      acc[p.category].subcategories[subcatKey].items.push(p);
-      return acc;
-    }, {});
+    const catalogStack = document.getElementById('catalog-stack');
+    const searchInput = document.getElementById('catalog-search');
 
-    let html = '';
+    function renderTables(filterQuery = '') {
+      const q = filterQuery.trim().toLowerCase();
+      
+      const filteredProducts = products.filter(p => {
+        if (!q) return true;
+        return p.sku.toLowerCase().includes(q) || p.name.toLowerCase().includes(q) || (p.params && p.params.toLowerCase().includes(q));
+      });
 
-    // Проходимся по категориям
-    for (const catData of Object.values(groupedByCategory)) {
-      let totalItemsInCat = 0;
-      for (const subcat of Object.values(catData.subcategories)) {
-        totalItemsInCat += subcat.items.length;
+      if (filteredProducts.length === 0) {
+        catalogStack.innerHTML = '<div class="empty-state">Ничего не найдено по запросу.</div>';
+        return;
       }
 
-      // Заголовок категории (без коробки, просто красивый текст)
-      html += `
-        <div class="cat-group" style="margin-bottom: 40px;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--line); padding-bottom: 10px;">
-            <h2 style="margin: 0; font-size: 24px; color: var(--blue-900); font-weight: 800;">${catData.name}</h2>
-            <span style="font-size: 14px; font-weight: 700; color: var(--muted);">${totalItemsInCat} ${plural(totalItemsInCat, ['позиция', 'позиции', 'позиций'])}</span>
-          </div>
-      `;
+      const groupedByCategory = filteredProducts.reduce((acc, p) => {
+        if (!acc[p.category]) {
+          acc[p.category] = { name: p.categoryName, subcategories: {} };
+        }
+        const subcatKey = p.subcategory || 'other';
+        const subcatName = p.subcategoryName || 'Прочее';
+        if (!acc[p.category].subcategories[subcatKey]) {
+          acc[p.category].subcategories[subcatKey] = { name: subcatName, items: [] };
+        }
+        acc[p.category].subcategories[subcatKey].items.push(p);
+        return acc;
+      }, {});
 
-      // Проходимся по подкатегориям
-      for (const subcatData of Object.values(catData.subcategories)) {
+      let html = '';
+      for (const catData of Object.values(groupedByCategory)) {
+        let totalItemsInCat = 0;
+        for (const subcat of Object.values(catData.subcategories)) {
+          totalItemsInCat += subcat.items.length;
+        }
+
         html += `
-          <div class="table-block" style="margin-bottom: 24px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: var(--shadow-sm);">
-            
-            ${subcatData.name !== 'Прочее' ? `
-              <div class="table-head" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: linear-gradient(90deg, var(--blue-50), #fff); border-bottom: 1px solid var(--line);">
-                <h3 style="margin: 0; font-size: 16.5px; color: var(--ink);">${subcatData.name}</h3>
-                <span style="font-size: 12.5px; font-weight: 700; color: var(--blue-700); background: var(--blue-100); padding: 4px 10px; border-radius: 99px;">
-                  ${subcatData.items.length} ${plural(subcatData.items.length, ['позиция', 'позиции', 'позиций'])}
-                </span>
-              </div>
-            ` : ''}
-            
-            <div class="table-scroll" style="overflow-x: auto;">
-              <table style="width: 100%; min-width: 760px; border-collapse: collapse;">
-                <thead>
-                  <tr>
-                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: left;">Артикул</th>
-                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: left;">Наименование</th>
-                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: left;">Параметры</th>
-                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: right;">Цена, ₽</th>
-                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: left;">Наличие</th>
-                  </tr>
-                </thead>
-                <tbody>
+          <div class="cat-group" style="margin-bottom: 40px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--line); padding-bottom: 10px;">
+              <h2 style="margin: 0; font-size: 24px; color: var(--blue-900); font-weight: 800;">${catData.name}</h2>
+              <span style="font-size: 14px; font-weight: 700; color: var(--muted);">${totalItemsInCat} ${plural(totalItemsInCat, ['позиция', 'позиции', 'позиций'])}</span>
+            </div>
         `;
-        
-        subcatData.items.forEach(item => {
-          const badge = item.stock === 'in' ? '<span class="status in-stock" style="background:#e7f6ed; color:#15803d; padding:3px 9px; border-radius:99px; font-size:11px; font-weight:700;">В наличии</span>' : '<span class="status on-order" style="background:#fff3e0; color:#b45309; padding:3px 9px; border-radius:99px; font-size:11px; font-weight:700;">Под заказ</span>';
+
+        for (const subcatData of Object.values(catData.subcategories)) {
           html += `
-            <tr style="border-bottom: 1px solid var(--line);">
-              <td class="code" style="padding: 8px 16px; font-family: ui-monospace, monospace; font-weight: 700; color: var(--blue-700);">${item.sku}</td>
-              <td style="padding: 8px 16px; font-size: 13.5px;">${item.name}</td>
-              <td style="padding: 8px 16px; color: var(--muted); font-size: 12.5px;">${item.params}</td>
-              <td class="price" style="padding: 8px 16px; font-weight: 800; text-align: right;">${item.price.toLocaleString('ru-RU')} <small style="display:block; font-size: 10.5px; font-weight: 600; color: var(--muted);">с НДС</small></td>
-              <td style="padding: 8px 16px;">${badge}</td>
-            </tr>
+            <div class="table-block" style="margin-bottom: 24px;">
+              ${subcatData.name !== 'Прочее' ? `
+                <div class="table-head">
+                  <h3>${subcatData.name}</h3>
+                  <span class="count">${subcatData.items.length} ${plural(subcatData.items.length, ['позиция', 'позиции', 'позиций'])}</span>
+                </div>
+              ` : ''}
+              
+              <div class="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Артикул</th>
+                      <th>Наименование</th>
+                      <th>Параметры</th>
+                      <th style="text-align:right">Цена, ₽</th>
+                      <th>Наличие</th>
+                    </tr>
+                  </thead>
+                  <tbody>
           `;
-        });
-        
-        html += `</tbody></table></div></div>`;
+          
+          subcatData.items.forEach(item => {
+            const badge = item.stock === 'in' ? '<span class="status in-stock">В наличии</span>' : '<span class="status on-order">Под заказ</span>';
+            html += `
+              <tr>
+                <td class="code">${item.sku}</td>
+                <td>${item.name}</td>
+                <td style="color:var(--muted);font-size:12.5px">${item.params}</td>
+                <td class="price">${item.price.toLocaleString('ru-RU')} <small>с НДС</small></td>
+                <td>${badge}</td>
+              </tr>
+            `;
+          });
+          
+          html += `</tbody></table></div></div>`;
+        }
+        html += `</div>`;
       }
-      
-      html += `</div>`; // Закрываем категорию
+      catalogStack.innerHTML = html;
     }
 
-    document.getElementById('catalog-stack').innerHTML = html;
+    renderTables();
+
+    searchInput.addEventListener('input', (e) => {
+      renderTables(e.target.value);
+    });
+
   } catch (error) {
     console.error(error);
     document.getElementById('catalog-stack').innerHTML = '<p style="color:red;">Ошибка загрузки товаров. Проверьте консоль.</p>';
