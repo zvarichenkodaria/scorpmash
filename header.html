@@ -98,17 +98,19 @@
 </header>
 
 <script>
-  // Подсветка активного меню на основе URL
-  (function() {
+  // Ждем полсекунды, чтобы меню успело вставиться на страницу
+  setTimeout(function() {
     const path = window.location.pathname;
     
     document.querySelectorAll('.nav a').forEach(link => {
+      // Подсветка для Брендов
       if (path.includes('/brand/') && link.dataset.nav === 'brands') {
         link.classList.add('active');
       }
+      // Подсветка для Категорий
       if (path.includes('/category/') && link.dataset.nav === 'categories') {
         link.classList.add('active');
       }
     });
-  })();
+  }, 500); // 500 миллисекунд задержки
 </script>
