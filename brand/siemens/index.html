@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ПЧ и УПП — категория | Scorpmash</title>
-<meta name="description" content="Категория ПЧ и УПП: преобразователи частоты и устройства плавного пуска.">
+<title>SIEMENS — продукция бренда | Scorpmash</title>
+<meta name="description" content="Каталог продукции SIEMENS: артикулы, параметры и цены.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,14 +60,22 @@ button{font:inherit}
 .breadcrumbs li:last-child::after{content:""}
 .breadcrumbs a:hover{color:var(--blue-700)}
 
-/* Cat head */
-.cat-head{padding:26px 0 30px}
-.cat-head h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px);letter-spacing:-.04em;font-weight:800;}
-.cat-head p{margin:0;color:var(--muted);font-size:15.5px;max-width:800px}
-
-/* Meta badges */
+/* Brand head */
+.brand-head{padding:26px 0 30px}
+.brand-head-inner{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:32px}
+.brand-head-logo{
+  width:130px;height:130px;flex:0 0 auto;padding:18px;border-radius:20px;
+  background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);
+  display:grid;place-items:center;
+}
+.brand-head-logo span{font-size:20px;font-weight:800;letter-spacing:-.03em;color:var(--blue-800)}
+.brand-head-copy h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-.04em;font-weight:800}
+.brand-head-copy p{margin:0;max-width:780px;font-size:15.5px;color:var(--muted)}
 .brand-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.brand-meta span{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--blue-50);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--blue-800)}
+.brand-meta span{
+  display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;
+  background:var(--blue-50);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--blue-800);
+}
 
 /* Toolbar */
 .catalog-toolbar{
@@ -88,52 +96,62 @@ button{font:inherit}
 .search-box input:focus{outline:none;border-color:var(--blue-600);box-shadow:0 0 0 4px rgba(17,87,176,.12)}
 .search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
 
-/* Layout with sidebar */
-.catalog-layout{display:grid;grid-template-columns:260px 1fr;gap:32px;padding-bottom:60px;align-items:start}
-
-/* Sidebar */
-.sidebar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:sticky;top:190px;box-shadow:var(--shadow-sm);}
-.sidebar h3{margin:0 0 16px;font-size:16px;font-weight:800}
-.filter-group{display:flex;flex-direction:column;gap:10px}
-.filter-label{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;cursor:pointer;color:#42526b;transition:.2s;}
-.filter-label input{width:18px;height:18px;accent-color:var(--blue-600);cursor:pointer}
-.filter-label:hover{color:var(--blue-700)}
+/* Sections */
+.section{padding:0 0 44px 0}
 
 /* Tables */
-.section{padding:0 0 44px 0}
 .table-stack{display:grid;gap:26px}
 .table-block{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);}
-.table-head{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:linear-gradient(90deg,var(--blue-50),#fff);border-bottom:1px solid var(--line)}
-.table-head h3{margin:0;font-size:16.5px;letter-spacing:-.02em;font-weight:800;}
-.table-head .count{font-size:12.5px;font-weight:700;color:var(--blue-700);background:var(--blue-100);padding:4px 10px;border-radius:99px}
-.table-scroll{overflow-x:auto;}
-table{width:100%;min-width:800px;border-collapse:collapse}
-th,td{padding:8px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:middle;}
-th{background:#f7f9fc;color:#42526b;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+.table-head{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 20px;background:linear-gradient(90deg,var(--blue-50),#fff);
+  border-bottom:1px solid var(--line);flex-wrap:wrap;
+}
+.table-head h3{margin:0;font-size:16.5px;letter-spacing:-.02em;font-weight:800}
+.table-head .count{font-size:12.5px;font-weight:700;color:var(--blue-700);background:var(--blue-100);padding:4px 10px;border-radius:999px;white-space:nowrap}
+
+.table-scroll{overflow-x:auto}
+table{width:100%;min-width:760px;border-collapse:collapse}
+th,td{
+  padding:8px 16px;text-align:left;border-bottom:1px solid var(--line);
+  font-size:13.5px;vertical-align:middle;
+}
+th{
+  background:#f7f9fc;color:#42526b;font-size:11px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;padding:9px 16px;
+}
 tbody tr:hover{background:var(--blue-50)}
 tbody tr:last-child td{border-bottom:0}
-.code{font-family:ui-monospace,monospace;font-weight:700;color:var(--blue-700);white-space:nowrap;}
-.brand-col{font-weight:800;color:var(--blue-800);white-space:nowrap;}
-.price{font-weight:800;text-align:right;white-space:nowrap;}
+.code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-weight:700;color:var(--blue-700);white-space:nowrap;
+}
+.price{font-weight:800;white-space:nowrap;text-align:right}
 .price small{display:block;font-size:10.5px;font-weight:600;color:var(--muted)}
-.status{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700;white-space:nowrap;}
+.status{
+  display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;
+  font-size:11px;font-weight:700;white-space:nowrap;
+}
 .in-stock{background:var(--green-bg);color:var(--green)}
 .on-order{background:var(--amber-bg);color:var(--amber)}
 .empty-state{padding:40px;text-align:center;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
 
 /* Responsive */
+@media(max-width:1150px){
+  .brand-head-inner{grid-template-columns:1fr;gap:20px}
+  .brand-head-logo{width:100px;height:100px}
+}
 @media(max-width:900px){
-  .catalog-layout{grid-template-columns:1fr;}
-  .sidebar{position:static;}
   .catalog-toolbar{top:0;}
 }
 @media(max-width:760px){
   .container{width:min(1300px,100% - 24px)}
   .breadcrumbs{padding-top:16px}
-  .cat-head{padding:18px 0 24px}
-  .cat-head h1{font-size:clamp(24px,7vw,32px)}
-  .cat-head p{font-size:14.5px}
+  .brand-head{padding:18px 0 24px}
+  .brand-head-copy h1{font-size:clamp(24px,7vw,32px)}
+  .brand-head-copy p{font-size:14.5px}
   th,td{padding:8px 12px;font-size:12.5px}
+  th{padding:9px 12px;font-size:10.5px}
   .table-head{padding:12px 14px}
   .toolbar-inner{gap:10px}
   .search-box{flex:1 1 100%}
@@ -146,29 +164,41 @@ tbody tr:last-child td{border-bottom:0}
 <div id="header-placeholder"></div>
 
 <main>
+
   <div class="container">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <ol>
         <li><a href="/scorpmash/">Главная</a></li>
-        <li><a href="/scorpmash/#categories">Категории</a></li>
-        <li>ПЧ и УПП</li>
+        <li><a href="/scorpmash/#brands">Бренды</a></li>
+        <li>SIEMENS</li>
       </ol>
     </nav>
   </div>
 
-  <div class="container">
-    <section class="cat-head">
-      <h1>ПЧ и УПП</h1>
-      <p>Преобразователи частоты и устройства плавного пуска. Используйте фильтр по брендам слева и поиск, чтобы отобразить нужные позиции.</p>
-      
-      <div class="brand-meta">
-        <span id="meta-brands">Загрузка...</span>
-        <span id="meta-items">Загрузка...</span>
-        <span>B2B · юр. лица</span>
-        <span>Доставка по РФ</span>
+  <section class="brand-head">
+    <div class="container">
+      <div class="brand-head-inner">
+        <div class="brand-head-logo">
+          <span>SIEMENS</span>
+        </div>
+        <div class="brand-head-copy">
+          <h1>SIEMENS</h1>
+          <p>
+            Продукция SIEMENS для промышленных предприятий: контроллеры,
+            преобразователи частоты, КИП, электропитание и комплектующие.
+            Подбор по артикулу, техническим параметрам и аналогам.
+            Работаем со складскими позициями и под заказ.
+          </p>
+          <div class="brand-meta">
+            <span id="meta-cats">Загрузка...</span>
+            <span id="meta-items">Загрузка...</span>
+            <span>B2B · юр. лица</span>
+            <span>Доставка по РФ</span>
+          </div>
+        </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <!-- ПАНЕЛЬ ПОИСКА -->
   <div class="catalog-toolbar">
@@ -187,16 +217,10 @@ tbody tr:last-child td{border-bottom:0}
 
   <section class="section">
     <div class="container">
-      <div class="catalog-layout">
-        <aside class="sidebar">
-          <h3>Бренды</h3>
-          <div class="filter-group" id="brands-filter"></div>
-        </aside>
-
-        <div class="table-stack" id="catalog-content"></div>
-      </div>
+      <div class="table-stack" id="catalog-stack"></div>
     </div>
   </section>
+
 </main>
 
 <div id="footer-placeholder"></div>
@@ -224,13 +248,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- СКРИПТ КАТЕГОРИИ С ПОИСКОМ -->
+<!-- СКРИПТ БРЕНДА С ПОИСКОМ -->
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res = await fetch('/scorpmash/products/siemens.json');
-    const allProducts = await res.json();
-    const catProducts = allProducts.filter(p => p.category === 'drives');
+    const response = await fetch('/scorpmash/products/siemens.json');
+    if (!response.ok) throw new Error('Ошибка загрузки JSON');
+    const products = await response.json();
 
     function plural(n, forms) {
       const n10 = n % 10, n100 = n % 100;
@@ -239,95 +263,107 @@ document.addEventListener('DOMContentLoaded', async () => {
       return forms[2];
     }
 
-    const uniqueBrands = [...new Map(catProducts.map(item => [item.brand, item.brandName])).entries()];
-    document.getElementById('meta-brands').textContent = uniqueBrands.length + ' ' + plural(uniqueBrands.length, ['бренд', 'бренда', 'брендов']);
-    document.getElementById('meta-items').textContent = catProducts.length + ' ' + plural(catProducts.length, ['позиция', 'позиции', 'позиций']);
+    const uniqueCats = new Set(products.map(p => p.category));
+    document.getElementById('meta-cats').textContent = uniqueCats.size + ' ' + plural(uniqueCats.size, ['категория', 'категории', 'категорий']);
+    document.getElementById('meta-items').textContent = products.length + ' ' + plural(products.length, ['артикул', 'артикула', 'артикулов']);
 
-    const filterContainer = document.getElementById('brands-filter');
-    filterContainer.innerHTML = uniqueBrands.map(([slug, name]) => `
-      <label class="filter-label">
-        <input type="checkbox" value="${slug}" checked>
-        ${name}
-      </label>
-    `).join('');
-
-    const contentContainer = document.getElementById('catalog-content');
+    const catalogStack = document.getElementById('catalog-stack');
     const searchInput = document.getElementById('catalog-search');
 
-    function renderTables() {
-      const checkedBrands = Array.from(document.querySelectorAll('#brands-filter input:checked')).map(cb => cb.value);
-      const q = searchInput.value.trim().toLowerCase();
-
-      const filtered = catProducts.filter(p => {
-        const matchBrand = checkedBrands.includes(p.brand);
-        if (!matchBrand) return false;
+    function renderTables(filterQuery = '') {
+      const q = filterQuery.trim().toLowerCase();
+      
+      const filteredProducts = products.filter(p => {
         if (!q) return true;
         return p.sku.toLowerCase().includes(q) || p.name.toLowerCase().includes(q) || (p.params && p.params.toLowerCase().includes(q));
       });
 
-      if (filtered.length === 0) {
-        contentContainer.innerHTML = '<div class="empty-state">По выбранным фильтрам товаров не найдено.</div>';
+      if (filteredProducts.length === 0) {
+        catalogStack.innerHTML = '<div class="empty-state">Ничего не найдено по запросу.</div>';
         return;
       }
 
-      const grouped = filtered.reduce((acc, p) => {
-        if (!acc[p.subcategory]) {
-          acc[p.subcategory] = { name: p.subcategoryName, items: [] };
+      const groupedByCategory = filteredProducts.reduce((acc, p) => {
+        if (!acc[p.category]) {
+          acc[p.category] = { name: p.categoryName, subcategories: {} };
         }
-        acc[p.subcategory].items.push(p);
+        const subcatKey = p.subcategory || 'other';
+        const subcatName = p.subcategoryName || 'Прочее';
+        if (!acc[p.category].subcategories[subcatKey]) {
+          acc[p.category].subcategories[subcatKey] = { name: subcatName, items: [] };
+        }
+        acc[p.category].subcategories[subcatKey].items.push(p);
         return acc;
       }, {});
 
       let html = '';
-      for (const [subcatId, subcatData] of Object.entries(grouped)) {
-        const totalInSubcat = subcatData.items.length;
+      for (const catData of Object.values(groupedByCategory)) {
+        let totalItemsInCat = 0;
+        for (const subcat of Object.values(catData.subcategories)) {
+          totalItemsInCat += subcat.items.length;
+        }
+
         html += `
-          <div class="table-block">
-            <div class="table-head">
-              <h3>${subcatData.name}</h3>
-              <span class="count">${totalInSubcat} ${plural(totalInSubcat, ['позиция', 'позиции', 'позиций'])}</span>
+          <div class="cat-group" style="margin-bottom: 40px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--line); padding-bottom: 10px;">
+              <h2 style="margin: 0; font-size: 24px; color: var(--blue-900); font-weight: 800;">${catData.name}</h2>
+              <span style="font-size: 14px; font-weight: 700; color: var(--muted);">${totalItemsInCat} ${plural(totalItemsInCat, ['позиция', 'позиции', 'позиций'])}</span>
             </div>
-            <div class="table-scroll">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Артикул</th>
-                    <th>Бренд</th>
-                    <th>Наименование</th>
-                    <th>Параметры</th>
-                    <th style="text-align:right">Цена, ₽</th>
-                    <th>Наличие</th>
-                  </tr>
-                </thead>
-                <tbody>
         `;
-        subcatData.items.forEach(item => {
-          const badge = item.stock === 'in' 
-            ? '<span class="status in-stock">В наличии</span>' 
-            : '<span class="status on-order">Под заказ</span>';
+
+        for (const subcatData of Object.values(catData.subcategories)) {
           html += `
-            <tr>
-              <td class="code">${item.sku}</td>
-              <td class="brand-col">${item.brandName}</td>
-              <td>${item.name}</td>
-              <td style="color:var(--muted);font-size:12.5px">${item.params}</td>
-              <td class="price">${item.price.toLocaleString('ru-RU')} <small>с НДС</small></td>
-              <td>${badge}</td>
-            </tr>
+            <div class="table-block" style="margin-bottom: 24px;">
+              ${subcatData.name !== 'Прочее' ? `
+                <div class="table-head">
+                  <h3>${subcatData.name}</h3>
+                  <span class="count">${subcatData.items.length} ${plural(subcatData.items.length, ['позиция', 'позиции', 'позиций'])}</span>
+                </div>
+              ` : ''}
+              
+              <div class="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Артикул</th>
+                      <th>Наименование</th>
+                      <th>Параметры</th>
+                      <th style="text-align:right">Цена, ₽</th>
+                      <th>Наличие</th>
+                    </tr>
+                  </thead>
+                  <tbody>
           `;
-        });
-        html += `</tbody></table></div></div>`;
+          
+          subcatData.items.forEach(item => {
+            const badge = item.stock === 'in' ? '<span class="status in-stock">В наличии</span>' : '<span class="status on-order">Под заказ</span>';
+            html += `
+              <tr>
+                <td class="code">${item.sku}</td>
+                <td>${item.name}</td>
+                <td style="color:var(--muted);font-size:12.5px">${item.params}</td>
+                <td class="price">${item.price.toLocaleString('ru-RU')} <small>с НДС</small></td>
+                <td>${badge}</td>
+              </tr>
+            `;
+          });
+          
+          html += `</tbody></table></div></div>`;
+        }
+        html += `</div>`;
       }
-      contentContainer.innerHTML = html;
+      catalogStack.innerHTML = html;
     }
 
-    filterContainer.addEventListener('change', renderTables);
-    searchInput.addEventListener('input', renderTables);
     renderTables();
+
+    searchInput.addEventListener('input', (e) => {
+      renderTables(e.target.value);
+    });
 
   } catch (error) {
     console.error(error);
-    document.getElementById('catalog-content').innerHTML = '<p style="color:red;">Ошибка загрузки JSON.</p>';
+    document.getElementById('catalog-stack').innerHTML = '<p style="color:red;">Ошибка загрузки товаров. Проверьте консоль.</p>';
   }
 });
 </script>
