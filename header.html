@@ -37,8 +37,8 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-group">
-      <a href="/#categories">Категории</a>
-      <a href="/#brands">Бренды</a>
+      <a href="/#categories">О категориях</a>
+      <a href="/#brands">О брендах</a>
       <a href="/#about">О компании</a>
       <a href="/#services">Услуги</a>
     </div>
@@ -74,10 +74,11 @@
 </header>
 
 <script>
-  // Этот скрипт запускается только после того, как шапка вставилась на страницу
+  // Этот скрипт запускается только когда шапка уже вставилась на страницу
   (function() {
     const currentPath = window.location.pathname;
     document.querySelectorAll('.nav a').forEach(link => {
+      // Если мы в папке brand или category, подсвечиваем нужную кнопку
       if (currentPath.includes('/brand/') && link.dataset.nav === 'brands') link.classList.add('active');
       if (currentPath.includes('/category/') && link.dataset.nav === 'categories') link.classList.add('active');
     });
