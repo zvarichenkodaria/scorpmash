@@ -1541,7 +1541,7 @@ document.getElementById('global-search-form').addEventListener('submit', async f
 
   try {
     // Загружаем нашу базу
-    const response = await fetch('/products/siemens.json');
+    const response = await fetch('./products/siemens.json');
     const products = await response.json();
 
     // Ищем товар
