@@ -173,11 +173,11 @@ tbody tr:last-child td{border-bottom:0}
 <!-- ЗАГЛУШКА ДЛЯ ПОДВАЛА -->
 <div id="footer-placeholder"></div>
 
-<!-- СКРИПТ ДЛЯ ПОДГРУЗКИ ШАПКИ И ПОДВАЛА -->
+<!-- ЕДИНЫЙ СКРИПТ ДЛЯ ЗАГРУЗКИ ШАПКИ И ПОДВАЛА -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Загружаем и вставляем шапку
-  fetch('./header.html') // для главной. На бренде и категории поменяй на '../../header.html'
+  // Загружаем шапку
+  fetch('/scorpmash/header.html')
     .then(res => res.text())
     .then(html => {
       const temp = document.createElement('div');
@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (placeholder) placeholder.replaceWith(...temp.childNodes);
     });
 
-  // Загружаем и вставляем подвал
-  fetch('./footer.html') // для главной. На бренде и категории поменяй на '../../footer.html'
+  // Загружаем подвал
+  fetch('/scorpmash/footer.html')
     .then(res => res.text())
     .then(html => {
       const temp = document.createElement('div');
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res = await fetch('../../products/siemens.json');
+    const res = await fetch('/scorpmash/products/siemens.json');
     const allProducts = await res.json();
     const catProducts = allProducts.filter(p => p.category === 'drives');
 
