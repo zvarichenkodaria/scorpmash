@@ -102,126 +102,6 @@ button{font:inherit}
 }
 .btn-soft:hover{background:#d5e4f8}
 
-/* Topbar */
-.topbar{
-  background:var(--navy);
-  color:rgba(255,255,255,.72);
-  font-size:13.5px;
-}
-.topbar-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  min-height:46px;
-}
-.topbar-group{
-  display:flex;
-  gap:26px;
-  flex-wrap:wrap;
-}
-.topbar a:hover{color:#fff}
-
-/* Header */
-.header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
-}
-.header-inner{
-  display:grid;
-  grid-template-columns:auto minmax(0,1fr) auto;
-  align-items:center;
-  gap:28px;
-  min-height:86px;
-}
-.logo{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  font-size:23px;
-  font-weight:800;
-  letter-spacing:-.03em;
-  min-width:0;
-}
-.logo-mark{
-  width:60px;
-  height:60px;
-  flex:0 0 auto;
-  border-radius:0;
-  display:grid;
-  place-items:center;
-  color:#fff;
-  font-size:20px;
-  overflow:hidden;
-}
-.logo-mark img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-.logo small{
-  display:block;
-  font-size:11px;
-  font-weight:700;
-  color:var(--muted);
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-.nav{
-  display:flex;
-  justify-content:center;
-  gap:4px;
-  min-width:0;
-}
-.nav a{
-  padding:12px 16px;
-  border-radius:12px;
-  font-weight:600;
-  font-size:15px;
-  color:#42526b;
-  transition:.2s;
-  white-space:nowrap;
-}
-.nav a:hover{color:var(--blue-800);background:var(--blue-50)}
-.nav a.active{
-  color:var(--blue-800);
-  background:var(--blue-100);
-}
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  min-width:0;
-}
-.contact-mini{
-  text-align:right;
-  min-width:0;
-  white-space:nowrap;
-}
-.contact-mini b{
-  display:block;
-  font-size:16px;
-  line-height:1.2;
-}
-.contact-mini span{
-  font-size:12px;
-  color:var(--muted);
-}
-.burger{
-  display:none;
-  width:50px;
-  height:50px;
-  flex:0 0 auto;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:#fff;
-  font-size:20px;
-}
-
 /* Hero */
 .hero{
   position:relative;
@@ -797,47 +677,6 @@ tbody tr:last-child td{border-bottom:0}
   color:rgba(255,255,255,.76);
 }
 
-/* Footer */
-.footer{
-  margin-top:110px;
-  background:var(--navy);
-  color:rgba(255,255,255,.68);
-  padding:88px 0 30px;
-}
-.footer-grid{
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr 1.2fr;
-  gap:48px;
-  padding-bottom:48px;
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-.footer h4{
-  margin:0 0 20px;
-  color:#fff;
-  font-size:16px;
-}
-.footer ul{
-  margin:0;
-  padding:0;
-  list-style:none;
-  display:grid;
-  gap:12px;
-  font-size:15px;
-}
-.footer a:hover{color:#fff}
-.footer-about{
-  max-width:370px;
-  margin:20px 0 0;
-}
-.footer-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding-top:26px;
-  font-size:13.5px;
-}
-
 /* Responsive */
 @media(max-width:1150px){
   .search-card{grid-template-columns:1fr;gap:28px}
@@ -848,51 +687,10 @@ tbody tr:last-child td{border-bottom:0}
   .brand-grid{grid-template-columns:repeat(3,1fr)}
   .feature-grid{grid-template-columns:repeat(2,1fr)}
   .service-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:repeat(2,1fr)}
-
-  .header-inner{gap:18px}
-  .nav a{padding:10px 12px;font-size:14px}
-
-  /* Прячем email, номер оставляем */
-  .contact-mini[href^="mailto"]{display:none}
 }
 
 @media(max-width:760px){
   .container{width:min(1300px,100% - 24px)}
-
-  /* Верхняя полоса остаётся */
-  .topbar-group{display:none}
-
-  /* Меню прячем */
-  .nav{display:none}
-
-  /* В шапке НЕ показываем номер и почту */
-  .header-actions .contact-mini{display:none}
-
-  .header-inner{
-    grid-template-columns:minmax(0,1fr) auto;
-    justify-content:space-between;
-    gap:12px;
-    min-height:72px;
-  }
-
-  .logo{
-    gap:10px;
-    font-size:19px;
-  }
-  .logo-mark{
-    width:44px;
-    height:44px;
-  }
-  .logo small{
-    font-size:9.5px;
-  }
-
-  .burger{
-    display:grid;
-    place-items:center;
-  }
-
   .hero{padding:40px 0 72px}
   .hero-slider{height:420px}
   .hero-slide{padding:28px 24px}
@@ -909,137 +707,14 @@ tbody tr:last-child td{border-bottom:0}
   .banner{padding:28px;min-height:300px}
   .cta{padding:40px 24px}
   .cta-inner{grid-template-columns:1fr}
-  .footer{padding:64px 0 24px}
-  .footer-grid{grid-template-columns:1fr;gap:36px}
-  .footer-bottom{flex-direction:column;align-items:flex-start}
 }
-
-/* Site lock 
-body:not(.site-unlocked) > :not(#site-lock){
-  display:none !important;
-}
-
-#site-lock{
-  position:fixed;
-  inset:0;
-  z-index:999999;
-  display:grid;
-  place-items:center;
-  padding:24px;
-  background:var(--navy,#071c38);
-}
-
-.site-lock-card{
-  width:min(420px,100%);
-  padding:32px;
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:20px;
-  background:#fff;
-  box-shadow:0 24px 70px rgba(0,0,0,.25);
-}
-
-.site-lock-card h2{
-  margin:0 0 20px;
-  color:var(--ink,#0f172a);
-}
-
-.site-lock-card input{
-  width:100%;
-  min-height:54px;
-  margin-bottom:14px;
-  padding:0 16px;
-  border:1px solid var(--line,#dbe3ec);
-  border-radius:12px;
-  font:inherit;
-}
-
-.site-lock-card button{
-  width:100%;
-  min-height:54px;
-  border:0;
-  border-radius:12px;
-  background:var(--blue-600,#1157b0);
-  color:#fff;
-  font:inherit;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.site-lock-error{
-  margin:12px 0 0;
-  color:#b42318;
-} */
-
 </style>
 </head>
 
 <body>
-<!--
-<div id="site-lock">
-  <form class="site-lock-card" id="site-lock-form">
-    <h2>Введите код доступа</h2>
 
-    <input
-      id="site-lock-code"
-      type="password"
-      placeholder="Код доступа"
-      autocomplete="off"
-      required
-    >
-
-    <button type="submit">Открыть сайт</button>
-
-    <p class="site-lock-error" id="site-lock-error" hidden>
-      Неверный код. Попробуйте ещё раз.
-    </p>
-  </form>
-</div> 
--->
-<div class="topbar">
-  <div class="container topbar-inner">
-    <div class="topbar-group">
-      <a href="#">На всякий случай доп менюшка</a>
-      <a href="#">Кнопка 2</a>
-      <a href="#">Кнопка 3</a>
-    </div>
-    <div class="topbar-group">
-      <a href="mailto:info@scorpmash.ru">info@scorpmash.ru</a>
-      <a href="tel:+79826594620">+7 (982) 659-46-20</a>
-    </div>
-  </div>
-</div>
-
-<header class="header">
-  <div class="container header-inner">
-    <a class="logo" href="/">
-      <span class="logo-mark">
-        <img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue%5F1.png" alt="Scorpmash">
-      </span>
-      <span>
-        Scorpmash
-        <small>Инженерное оборудование</small>
-      </span>
-    </a>
-
-    <nav class="nav">
-      <a href="#categories">Категории</a>
-      <a href="#brands">Бренды</a>
-      <a href="#about">О компании</a>
-      <a href="#services">Услуги</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
-
-    <div class="header-actions">
-      <a class="contact-mini" href="tel:+79826594620">
-        <b>+7 (982) 659-46-20</b>
-      </a>
-      <a class="contact-mini" href="mailto:sale@scorpmash.ru">
-        <b>sale@scorpmash.ru</b>
-      </a>
-      <button class="burger" aria-label="Открыть меню">☰</button>
-    </div>
-  </div>
-</header>
+<!-- ЗАГЛУШКА ДЛЯ ШАПКИ -->
+<div id="header-placeholder"></div>
 
 <main>
 
@@ -1407,62 +1082,29 @@ body:not(.site-unlocked) > :not(#site-lock){
 
 </main>
 
-<footer class="footer" id="contacts">
-  <div class="container">
+<!-- ЗАГЛУШКА ДЛЯ ПОДВАЛА -->
+<div id="footer-placeholder"></div>
 
-    <div class="footer-grid">
-      <div>
-        <a class="logo" href="/" style="color:#fff">
-          <span class="logo-mark">
-            <img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue.png" alt="Scorpmash">
-          </span>
-          <span>
-            Scorpmash
-            <small style="color:rgba(255,255,255,.5)">Промышленные решения</small>
-          </span>
-        </a>
-        <p class="footer-about">
-          Каталог промышленного оборудования, комплектующих и запасных частей.
-          Подбор продукции по брендам, техническим категориям и артикулам.
-        </p>
-      </div>
+<!-- СКРИПТ ДЛЯ ПОДГРУЗКИ ШАПКИ И ПОДВАЛА -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Подгружаем шапку
+  fetch('./header.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header-placeholder').innerHTML = html;
+    });
 
-      <div>
-        <h4>Каталог</h4>
-        <ul>
-          <li><a href="#categories">Категории</a></li>
-          <li><a href="#brands">Бренды</a></li>
-          <li><a href="#search">Поиск по каталогу</a></li>
-        </ul>
-      </div>
+  // Подгружаем подвал
+  fetch('./footer.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer-placeholder').innerHTML = html;
+    });
+});
+</script>
 
-      <div>
-        <h4>Компания</h4>
-        <ul>
-          <li><a href="#about">О компании</a></li>
-          <li><a href="#services">Услуги</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Контакты</h4>
-        <ul>
-          <li><a href="tel:+79826594620">+7 (982) 659-46-20</a></li>
-          <li><a href="mailto:info@scorpmash.ru">info@scorpmash.ru</a></li>
-          <li>Пн-Вс: круглосуточно 24/7</li>
-          <li>Адрес: уточняется</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 Scorpmash. Все права защищены.</span>
-      <span>Политика конфиденциальности · Пользовательское соглашение</span>
-    </div>
-
-  </div>
-</footer>
-
+<!-- СКРИПТ СЛАЙДЕРА -->
 <script>
 (() => {
   const slides = Array.from(document.querySelectorAll('.hero-slide'));
@@ -1505,30 +1147,7 @@ body:not(.site-unlocked) > :not(#site-lock){
 })();
 </script>
 
-<!--  <script>
-(() => {
-  const ACCESS_CODE = '6767';
-
-  const form = document.getElementById('site-lock-form');
-  const input = document.getElementById('site-lock-code');
-  const error = document.getElementById('site-lock-error');
-  const lock = document.getElementById('site-lock');
-
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-
-    if (input.value.trim() === ACCESS_CODE) {
-      document.body.classList.add('site-unlocked');
-      lock.remove();
-    } else {
-      error.hidden = false;
-      input.focus();
-      input.select();
-    }
-  });
-})();
-</script> -->
-
+<!-- СКРИПТ ПОИСКА -->
 <script>
 document.getElementById('global-search-form').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -1560,7 +1179,7 @@ document.getElementById('global-search-form').addEventListener('submit', async f
 
     if (found) {
       // Если товар найден — редиректим на страницу бренда с параметром поиска
-      window.location.href = `/brand/${found.brand}/index.html?search=${encodeURIComponent(found.sku)}`;
+      window.location.href = `/scorpmash/brand/${found.brand}/?search=${encodeURIComponent(found.sku)}`;
     } else {
       // Если не нашли, можно выдать ошибку или перекинуть в каталог
       alert('Товар по вашему запросу не найден. Проверьте артикул.');
@@ -1571,7 +1190,6 @@ document.getElementById('global-search-form').addEventListener('submit', async f
   }
 });
 </script>
-
 
 </body>
 </html>
