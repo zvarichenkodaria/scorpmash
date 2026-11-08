@@ -303,7 +303,7 @@ tbody tr:last-child td{border-bottom:0}
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res = await fetch('/products/siemens.json');
+    const res = await fetch('../../products/siemens.json');
     const allProducts = await res.json();
     const catProducts = allProducts.filter(p => p.category === 'drives');
 
