@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ПЧ и УПП — категория | Scorpmash</title>
+<meta name="description" content="Категория ПЧ и УПП: преобразователи частоты и устройства плавного пуска.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f4f7fb;
+  --white:#fff;
+  --ink:#0f172a;
+  --muted:#5b6b7f;
+  --line:#dbe3ec;
+
+  --blue-900:#062a5c;
+  --blue-800:#0a3d7c;
+  --blue-700:#0d4b96;
+  --blue-600:#1157b0;
+  --blue-500:#1c69cf;
+  --blue-100:#e3edfb;
+  --blue-50:#f0f5fd;
+
+  --navy:#071c38;
+  --navy-2:#0b2547;
+
+  --green:#15803d;
+  --green-bg:#e7f6ed;
+  --amber:#b45309;
+  --amber-bg:#fff3e0;
+
+  --radius:18px;
+  --radius-lg:26px;
+  --shadow-sm:0 4px 18px rgba(9,30,66,.06);
+  --shadow:0 20px 55px rgba(9,30,66,.10);
+  --shadow-lg:0 32px 80px rgba(9,30,66,.16);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit}
+
+.container{width:min(1300px,100% - 40px);margin-inline:auto}
+
+/* Topbar */
+.topbar{background:var(--navy);color:rgba(255,255,255,.72);font-size:13.5px}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:46px}
+.topbar-group{display:flex;gap:26px;flex-wrap:wrap}
+.topbar a:hover{color:#fff}
+
+/* Header */
+.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.header-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:28px;min-height:86px}
+.logo{display:flex;align-items:center;gap:14px;font-size:23px;font-weight:800;letter-spacing:-.03em;min-width:0}
+.logo-mark{width:60px;height:60px;flex:0 0 auto;display:grid;place-items:center;color:#fff;font-size:20px;overflow:hidden}
+.logo-mark img{width:100%;height:100%;object-fit:contain}
+.logo small{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.nav{display:flex;justify-content:center;gap:4px;min-width:0}
+.nav a{padding:12px 16px;border-radius:12px;font-weight:600;font-size:15px;color:#42526b;transition:.2s;white-space:nowrap}
+.nav a:hover{color:var(--blue-800);background:var(--blue-50)}
+.nav a.active{color:var(--blue-800);background:var(--blue-100)}
+.header-actions{display:flex;align-items:center;gap:14px;min-width:0}
+.contact-mini{text-align:right;min-width:0;white-space:nowrap}
+.contact-mini b{display:block;font-size:16px;line-height:1.2}
+.burger{display:none;width:50px;height:50px;flex:0 0 auto;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:20px}
+
+/* Breadcrumbs */
+.breadcrumbs{padding:26px 0 0;font-size:13.5px;color:var(--muted)}
+.breadcrumbs ol{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.breadcrumbs li::after{content:"/";margin-left:8px;color:#a9b6c7}
+.breadcrumbs li:last-child::after{content:""}
+.breadcrumbs a:hover{color:var(--blue-700)}
+
+/* Cat head */
+.cat-head{padding:26px 0 30px}
+.cat-head h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px);letter-spacing:-.04em;font-weight:800;}
+.cat-head p{margin:0;color:var(--muted);font-size:15.5px;max-width:800px}
+
+/* Meta badges */
+.brand-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.brand-meta span{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--blue-50);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--blue-800)}
+
+/* Layout with sidebar */
+.catalog-layout{display:grid;grid-template-columns:260px 1fr;gap:32px;padding-bottom:60px;align-items:start}
+
+/* Sidebar */
+.sidebar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:sticky;top:110px;box-shadow:var(--shadow-sm);}
+.sidebar h3{margin:0 0 16px;font-size:16px;font-weight:800}
+.filter-group{display:flex;flex-direction:column;gap:10px}
+.filter-label{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;cursor:pointer;color:#42526b;transition:.2s;}
+.filter-label input{width:18px;height:18px;accent-color:var(--blue-600);cursor:pointer}
+.filter-label:hover{color:var(--blue-700)}
+
+/* Tables */
+.section{padding:0 0 44px 0}
+.table-stack{display:grid;gap:26px}
+.table-block{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.table-head{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:linear-gradient(90deg,var(--blue-50),#fff);border-bottom:1px solid var(--line)}
+.table-head h3{margin:0;font-size:16.5px;letter-spacing:-.02em;font-weight:800;}
+.table-head .count{font-size:12.5px;font-weight:700;color:var(--blue-700);background:var(--blue-100);padding:4px 10px;border-radius:99px}
+.table-scroll{overflow-x:auto;}
+table{width:100%;min-width:800px;border-collapse:collapse}
+th,td{padding:8px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:middle;}
+th{background:#f7f9fc;color:#42526b;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+tbody tr:hover{background:var(--blue-50)}
+tbody tr:last-child td{border-bottom:0}
+.code{font-family:ui-monospace,monospace;font-weight:700;color:var(--blue-700);white-space:nowrap;}
+.brand-col{font-weight:800;color:var(--blue-800);white-space:nowrap;}
+.price{font-weight:800;text-align:right;white-space:nowrap;}
+.price small{display:block;font-size:10.5px;font-weight:600;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700;white-space:nowrap;}
+.in-stock{background:var(--green-bg);color:var(--green)}
+.on-order{background:var(--amber-bg);color:var(--amber)}
+.empty-state{padding:40px;text-align:center;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+
+/* Footer */
+.footer{margin-top:60px;background:var(--navy);color:rgba(255,255,255,.68);padding:70px 0 30px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.12)}
+.footer h4{margin:0 0 20px;color:#fff;font-size:16px}
+.footer ul{margin:0;padding:0;list-style:none;display:grid;gap:12px;font-size:15px}
+.footer a:hover{color:#fff}
+.footer-about{max-width:370px;margin:20px 0 0}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:26px;font-size:13.5px}
+
+/* Responsive */
+@media(max-width:1150px){
+  .brand-head-inner{grid-template-columns:1fr;gap:20px}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .catalog-layout{grid-template-columns:1fr;}
+  .sidebar{position:static;}
+}
+@media(max-width:760px){
+  .container{width:min(1300px,100% - 24px)}
+  .topbar-group{display:none}
+  .nav{display:none}
+  .header-actions .contact-mini{display:none}
+  .header-inner{grid-template-columns:minmax(0,1fr) auto;gap:12px;min-height:72px}
+  .logo{gap:10px;font-size:19px}
+  .logo-mark{width:44px;height:44px}
+  .logo small{font-size:9.5px}
+  .burger{display:grid;place-items:center}
+  .breadcrumbs{padding-top:16px}
+  .cat-head{padding:18px 0 24px}
+  .cat-head h1{font-size:clamp(24px,7vw,32px)}
+  .cat-head p{font-size:14.5px}
+  th,td{padding:8px 12px;font-size:12.5px}
+  .table-head{padding:12px 14px}
+  .footer{padding:50px 0 24px}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-group">
+      <a href="#">На всякий случай доп менюшка</a>
+      <a href="#">Кнопка 2</a>
+      <a href="#">Кнопка 3</a>
+    </div>
+    <div class="topbar-group">
+      <a href="mailto:info@scorpmash.ru">info@scorpmash.ru</a>
+      <a href="tel:+79826594620">+7 (982) 659-46-20</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="/">
+      <span class="logo-mark">
+        <img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue%5F1.png" alt="Scorpmash">
+      </span>
+      <span>
+        Scorpmash
+        <small>Инженерное оборудование</small>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="/#categories">Категории</a>
+      <a href="/#brands">Бренды</a>
+      <a href="/#about">О компании</a>
+      <a href="/#services">Услуги</a>
+      <a href="/#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="contact-mini" href="tel:+79826594620"><b>+7 (982) 659-46-20</b></a>
+      <a class="contact-mini" href="mailto:sale@scorpmash.ru"><b>sale@scorpmash.ru</b></a>
+      <button class="burger" aria-label="Открыть меню">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/#categories">Категории</a></li>
+        <li>ПЧ и УПП</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="container">
+    <section class="cat-head">
+      <h1>ПЧ и УПП</h1>
+      <p>Преобразователи частоты и устройства плавного пуска. Используйте фильтр по брендам слева, чтобы отобразить нужные позиции.</p>
+      
+      <div class="brand-meta">
+        <span id="meta-brands">Загрузка...</span>
+        <span id="meta-items">Загрузка...</span>
+        <span>B2B · юр. лица</span>
+        <span>Доставка по РФ</span>
+      </div>
+    </section>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="catalog-layout">
+        <aside class="sidebar">
+          <h3>Бренды</h3>
+          <div class="filter-group" id="brands-filter"></div>
+        </aside>
+
+        <div class="table-stack" id="catalog-content"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contacts">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="/" style="color:#fff">
+          <span class="logo-mark">
+            <img src="https://eimage.sendsay.ru/image/x_1788758751895056/logo%5Fblue.png" alt="Scorpmash">
+          </span>
+          <span>
+            Scorpmash
+            <small style="color:rgba(255,255,255,.5)">Промышленные решения</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Каталог промышленного оборудования, комплектующих и запасных частей.
+          Подбор продукции по брендам, техническим категориям и артикулам.
+        </p>
+      </div>
+      <div>
+        <h4>Каталог</h4>
+        <ul>
+          <li><a href="/#categories">Категории</a></li>
+          <li><a href="/#brands">Бренды</a></li>
+          <li><a href="/#search">Поиск по каталогу</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="/#about">О компании</a></li>
+          <li><a href="/#services">Услуги</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79826594620">+7 (982) 659-46-20</a></li>
+          <li><a href="mailto:info@scorpmash.ru">info@scorpmash.ru</a></li>
+          <li>Пн–Пт: 9:00–18:00</li>
+          <li>Адрес: уточняется</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Scorpmash. Все права защищены.</span>
+      <span>Политика конфиденциальности · Пользовательское соглашение</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const res = await fetch('/products/siemens.json');
+    const allProducts = await res.json();
+    const catProducts = allProducts.filter(p => p.category === 'drives');
+
+    // --- Вспомогательная функция склонения ---
+    function plural(n, forms) {
+      const n10 = n % 10, n100 = n % 100;
+      if (n10 === 1 && n100 !== 11) return forms[0];
+      if (n10 >= 2 && n10 <= 4 && (n100 < 10 || n100 >= 20)) return forms[1];
+      return forms[2];
+    }
+
+    // --- Считаем уникальные бренды ---
+    const uniqueBrands = [...new Map(catProducts.map(item => [item.brand, item.brandName])).entries()];
+    const uniqueBrandsCount = uniqueBrands.length;
+    const totalItemsCount = catProducts.length;
+
+    // --- Сразу обновляем плашки наверху ---
+    document.getElementById('meta-brands').textContent = uniqueBrandsCount + ' ' + plural(uniqueBrandsCount, ['бренд', 'бренда', 'брендов']);
+    document.getElementById('meta-items').textContent = totalItemsCount + ' ' + plural(totalItemsCount, ['позиция', 'позиции', 'позиций']);
+
+    // --- Рисуем чекбоксы ---
+    const filterContainer = document.getElementById('brands-filter');
+    filterContainer.innerHTML = uniqueBrands.map(([slug, name]) => `
+      <label class="filter-label">
+        <input type="checkbox" value="${slug}" checked>
+        ${name}
+      </label>
+    `).join('');
+
+    // --- Рендер таблиц ---
+    const contentContainer = document.getElementById('catalog-content');
+
+    function renderTables() {
+      const checkedBrands = Array.from(document.querySelectorAll('#brands-filter input:checked')).map(cb => cb.value);
+      const filtered = catProducts.filter(p => checkedBrands.includes(p.brand));
+
+      if (filtered.length === 0) {
+        contentContainer.innerHTML = '<div class="empty-state">По выбранным фильтрам товаров не найдено.</div>';
+        return;
+      }
+
+      const grouped = filtered.reduce((acc, p) => {
+        if (!acc[p.subcategory]) {
+          acc[p.subcategory] = { name: p.subcategoryName, items: [] };
+        }
+        acc[p.subcategory].items.push(p);
+        return acc;
+      }, {});
+
+      let html = '';
+      for (const [subcatId, subcatData] of Object.entries(grouped)) {
+        const totalInSubcat = subcatData.items.length;
+        html += `
+          <div class="table-block">
+            <div class="table-head">
+              <h3>${subcatData.name}</h3>
+              <span class="count">${totalInSubcat} ${plural(totalInSubcat, ['позиция', 'позиции', 'позиций'])}</span>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Артикул</th>
+                    <th>Бренд</th>
+                    <th>Наименование</th>
+                    <th>Параметры</th>
+                    <th style="text-align:right">Цена, ₽</th>
+                    <th>Наличие</th>
+                  </tr>
+                </thead>
+                <tbody>
+        `;
+        subcatData.items.forEach(item => {
+          const badge = item.stock === 'in' 
+            ? '<span class="status in-stock">В наличии</span>' 
+            : '<span class="status on-order">Под заказ</span>';
+          html += `
+            <tr>
+              <td class="code">${item.sku}</td>
+              <td class="brand-col">${item.brandName}</td>
+              <td>${item.name}</td>
+              <td style="color:var(--muted);font-size:12.5px">${item.params}</td>
+              <td class="price">${item.price.toLocaleString('ru-RU')} <small>с НДС</small></td>
+              <td>${badge}</td>
+            </tr>
+          `;
+        });
+        html += `</tbody></table></div></div>`;
+      }
+      contentContainer.innerHTML = html;
+    }
+
+    filterContainer.addEventListener('change', renderTables);
+    renderTables();
+
+  } catch (error) {
+    console.error(error);
+    document.getElementById('catalog-content').innerHTML = '<p style="color:red;">Ошибка загрузки JSON. Убедитесь, что запущен Live Server и файл products/siemens.json существует.</p>';
+  }
+});
+</script>
+
+</body>
+</html>

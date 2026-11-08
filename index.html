@@ -632,6 +632,13 @@ button{font:inherit}
   color:var(--muted);
 }
 
+.brand img {
+  max-width: 100%;
+  max-height: 60px; /* Ограничиваем высоту, чтобы всё было аккуратно */
+  object-fit: contain; /* Сохраняем пропорции */
+  display: block;
+}
+
 /* Features */
 .feature-grid{
   display:grid;
@@ -1120,41 +1127,34 @@ body:not(.site-unlocked) > :not(#site-lock){
           </p>
         </div>
 
-        <form class="search-form" action="#" method="get">
-          <div class="field">
-            <label for="article">Артикул</label>
-            <input id="article" name="article" type="text" placeholder="Например: SM-1024">
-          </div>
+<form class="search-form" id="global-search-form">
+  <div class="field">
+    <label for="article">Артикул</label>
+    <input id="article" name="article" type="text" placeholder="Например: 6SL3210..." required>
+  </div>
 
-          <div class="field">
-            <label for="category">Категория</label>
-            <select id="category" name="category">
-              <option value="">Все категории</option>
-              <option>Насосы</option>
-              <option>Электродвигатели</option>
-              <option>Вентиляция</option>
-              <option>КИП</option>
-              <option>УПД и ПО</option>
-              <option>Электропитание</option>
-              <option>Запорная арматура</option>
-              <option>ПЧ и УПП</option>
-            </select>
-          </div>
+  <div class="field">
+    <label for="category">Категория</label>
+    <select id="category" name="category">
+      <option value="">Все категории</option>
+      <option value="drives">ПЧ и УПП</option>
+      <option value="pumps">Насосы</option>
+    </select>
+  </div>
 
-          <div class="field">
-            <label for="brand">Бренд</label>
-            <select id="brand" name="brand">
-              <option value="">Все бренды</option>
-              <option>Scorpmash</option>
-              <option>Brand A</option>
-              <option>Brand B</option>
-              <option>Brand C</option>
-              <option>Brand D</option>
-            </select>
-          </div>
+  <div class="field">
+    <label for="brand">Бренд</label>
+    <select id="brand" name="brand">
+      <option value="">Все бренды</option>
+      <option value="siemens">SIEMENS</option>
+      <option value="eldin">ELDIN</option>
+      <option value="cnp">CNP</option>
+      <option value="owen">ОВЕН</option>
+    </select>
+  </div>
 
-          <button class="btn btn-primary" type="submit">Найти</button>
-        </form>
+  <button class="btn btn-primary" type="submit">Найти</button>
+</form>
 
       </div>
     </div>
@@ -1202,7 +1202,7 @@ body:not(.site-unlocked) > :not(#site-lock){
       </div>
 
       <div class="category-grid">
-        <a class="category" href="/category/pumps">
+        <a class="category" href="/category/frequency_converters/">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>Насосы</h3>
@@ -1211,7 +1211,7 @@ body:not(.site-unlocked) > :not(#site-lock){
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/motors">
+        <a class="category" href="/category/frequency_converters/">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>Электродвигатели</h3>
@@ -1220,7 +1220,7 @@ body:not(.site-unlocked) > :not(#site-lock){
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/ventilation">
+        <a class="category" href="/category/frequency_converters/">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>Вентиляция</h3>
@@ -1229,7 +1229,7 @@ body:not(.site-unlocked) > :not(#site-lock){
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/instruments">
+        <a class="category" href="/category/frequency_converters/">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>КИП</h3>
@@ -1238,7 +1238,7 @@ body:not(.site-unlocked) > :not(#site-lock){
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/data">
+        <a class="category" href="/category/frequency_converters/">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>УПД и ПО</h3>
@@ -1247,7 +1247,7 @@ body:not(.site-unlocked) > :not(#site-lock){
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/power">
+        <a class="category" href="/category/frequency_converters/">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>Электропитание</h3>
@@ -1256,7 +1256,7 @@ body:not(.site-unlocked) > :not(#site-lock){
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/valves">
+        <a class="category" href="/category/frequency_converters/">
           <div class="category-icon">⚙️</div>
           <div>
             <h3>Запорная арматура</h3>
@@ -1265,8 +1265,8 @@ body:not(.site-unlocked) > :not(#site-lock){
           <span class="category-count">Перейти →</span>
         </a>
 
-        <a class="category" href="/category/drives">
-          <div class="category-icon">⚙️</div>
+        <a class="category" href="/category/frequency_converters/">
+          <div class="category-icon">✅</div>
           <div>
             <h3>ПЧ и УПП</h3>
             <p>Преобразователи частоты и устройства плавного пуска.</p>
@@ -1293,29 +1293,26 @@ body:not(.site-unlocked) > :not(#site-lock){
       </div>
 
 
-<a class="brand" href="/scorpmash/brand/siemens">
-  <img src="images/siemens-logo.png" alt="SIEMENS" style="max-width: 100%; max-height: 100px; object-fit: contain;">
-</a>
-
+ 
 
 <div class="brand-grid">
   <a class="brand" href="/scorpmash/brand/siemens">
     <img src="images/siemens.png" alt="SIEMENS">
   </a>
-  <a class="brand" href="/scorpmash/brand/siemens">
-    <img src="images/siemens.png" alt="ELDIN">
+  <a class="brand" href="/scorpmash/brand/eldin">
+    <img src="images/eldin.png" alt="ELDIN">
   </a>
-  <a class="brand" href="/scorpmash/brand/siemens">
-    <img src="images/siemens.png" alt="CNP">
+  <a class="brand" href="/scorpmash/brand/cnp">
+    <img src="images/cnp.png" alt="CNP">
   </a>
-  <a class="brand" href="/scorpmash/brand/siemens">
-    <img src="images/siemens.png" alt="MOXA">
+  <a class="brand" href="/scorpmash/brand/moxa">
+    <img src="images/moxa.png" alt="MOXA">
   </a>
-  <a class="brand" href="/scorpmash/brand/siemens">
-    <img src="images/siemens.png" alt="ОВЕН">
+  <a class="brand" href="/scorpmash/brand/owen">
+    <img src="images/owen.png" alt="ОВЕН">
   </a>
-  <a class="brand" href="/scorpmash/brand/siemens">
-    <img src="images/siemens.png" alt="ВЭЛТ">
+  <a class="brand" href="/scorpmash/brand/velt">
+    <img src="images/velt.png" alt="ВЭЛТ">
   </a>
 </div>
 
@@ -1531,6 +1528,50 @@ body:not(.site-unlocked) > :not(#site-lock){
   });
 })();
 </script> -->
+
+<script>
+document.getElementById('global-search-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const query = document.getElementById('article').value.trim().toLowerCase();
+  const selectedCategory = document.getElementById('category').value;
+  const selectedBrand = document.getElementById('brand').value;
+  
+  if (!query) return;
+
+  try {
+    // Загружаем нашу базу
+    const response = await fetch('/products/siemens.json');
+    const products = await response.json();
+
+    // Ищем товар
+    const found = products.find(p => {
+      // Ищем по артикулу (полное или частичное совпадение)
+      const matchSku = p.sku.toLowerCase().includes(query) || p.name.toLowerCase().includes(query);
+      
+      // Если выбрана категория, проверяем её
+      const matchCat = selectedCategory ? p.category === selectedCategory : true;
+      
+      // Если выбран бренд, проверяем его
+      const matchBrand = selectedBrand ? p.brand === selectedBrand : true;
+      
+      return matchSku && matchCat && matchBrand;
+    });
+
+    if (found) {
+      // Если товар найден — редиректим на страницу бренда с параметром поиска
+      window.location.href = `/brand/${found.brand}/index.html?search=${encodeURIComponent(found.sku)}`;
+    } else {
+      // Если не нашли, можно выдать ошибку или перекинуть в каталог
+      alert('Товар по вашему запросу не найден. Проверьте артикул.');
+    }
+  } catch (error) {
+    console.error('Ошибка поиска:', error);
+    alert('Произошла ошибка при поиске. Попробуйте позже.');
+  }
+});
+</script>
+
 
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SIEMENS — продукция бренда | Scorpmash</title>
-<meta name="description" content="Каталог продукции SIEMENS: артикулы и цены. Быстрый поиск по артикулу.">
+<meta name="description" content="Каталог продукции SIEMENS: артикулы, параметры и цены.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,18 +57,6 @@ button{font:inherit}
 
 .container{width:min(1300px,100% - 40px);margin-inline:auto}
 
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  min-height:52px;padding:0 26px;border:0;border-radius:14px;
-  font-weight:700;font-size:15px;cursor:pointer;transition:.22s ease;white-space:nowrap;
-}
-.btn-primary{background:var(--blue-600);color:#fff;box-shadow:0 14px 34px rgba(17,87,176,.28)}
-.btn-primary:hover{background:var(--blue-700);transform:translateY(-2px)}
-.btn-white{background:#fff;color:var(--blue-800);box-shadow:var(--shadow-sm)}
-.btn-white:hover{transform:translateY(-2px)}
-.btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.35);color:#fff}
-.btn-outline:hover{background:rgba(255,255,255,.1)}
-
 /* Topbar */
 .topbar{background:var(--navy);color:rgba(255,255,255,.72);font-size:13.5px}
 .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:46px}
@@ -98,7 +86,7 @@ button{font:inherit}
 .breadcrumbs li:last-child::after{content:""}
 .breadcrumbs a:hover{color:var(--blue-700)}
 
-/* Brand head compact */
+/* Brand head */
 .brand-head{padding:26px 0 30px}
 .brand-head-inner{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:32px}
 .brand-head-logo{
@@ -106,47 +94,21 @@ button{font:inherit}
   background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);
   display:grid;place-items:center;
 }
-.brand-head-logo img{max-width:100%;max-height:100%;object-fit:contain}
 .brand-head-logo span{font-size:20px;font-weight:800;letter-spacing:-.03em;color:var(--blue-800)}
 .brand-head-copy h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-.04em;font-weight:800}
 .brand-head-copy p{margin:0;max-width:780px;font-size:15.5px;color:var(--muted)}
-.brand-head-copy .brand-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.brand-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .brand-meta span{
   display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;
   background:var(--blue-50);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--blue-800);
 }
 
-/* Sticky catalog toolbar */
-.catalog-toolbar{
-  position:sticky;top:86px;z-index:60;
-  background:rgba(244,247,251,.94);
-  backdrop-filter:blur(10px);
-  border-block:1px solid var(--line);
-  padding:12px 0;
-}
-.toolbar-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.search-box{position:relative;flex:1 1 320px;min-width:240px}
-.search-box input{
-  width:100%;min-height:48px;padding:0 16px 0 44px;
-  border:1.5px solid var(--line);border-radius:12px;background:#fff;
-  font:inherit;font-size:14.5px;color:var(--ink);transition:.2s;
-}
-.search-box input:focus{outline:none;border-color:var(--blue-600);box-shadow:0 0 0 4px rgba(17,87,176,.12)}
-.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
-.cat-jump{display:flex;gap:6px;flex-wrap:wrap}
-.cat-jump a{
-  padding:8px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);
-  font-size:13px;font-weight:700;color:#42526b;transition:.2s;white-space:nowrap;
-}
-.cat-jump a:hover{border-color:var(--blue-600);color:var(--blue-800)}
-
 /* Sections */
-.section{padding:44px 0}
-.section.alt{background:#fff;border-block:1px solid var(--line)}
+.section{padding:0 0 44px 0}
 
-/* Light tables */
+/* Tables */
 .table-stack{display:grid;gap:26px}
-.table-block{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.table-block{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);}
 .table-head{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:14px 20px;background:linear-gradient(90deg,var(--blue-50),#fff);
@@ -171,8 +133,6 @@ tbody tr:last-child td{border-bottom:0}
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
   font-weight:700;color:var(--blue-700);white-space:nowrap;
 }
-.name-cell{min-width:220px}
-.params{color:var(--muted);font-size:12.5px}
 .price{font-weight:800;white-space:nowrap;text-align:right}
 .price small{display:block;font-size:10.5px;font-weight:600;color:var(--muted)}
 .status{
@@ -181,37 +141,6 @@ tbody tr:last-child td{border-bottom:0}
 }
 .in-stock{background:var(--green-bg);color:var(--green)}
 .on-order{background:var(--amber-bg);color:var(--amber)}
-
-/* Show more */
-.table-foot{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:10px 20px;border-top:1px solid var(--line);background:#fbfcfe;flex-wrap:wrap;
-}
-.table-foot .shown{font-size:12.5px;color:var(--muted)}
-.btn-more{
-  min-height:38px;padding:0 16px;border-radius:10px;border:1.5px solid var(--blue-600);
-  background:#fff;color:var(--blue-700);font-weight:700;font-size:13px;cursor:pointer;transition:.2s;
-}
-.btn-more:hover{background:var(--blue-600);color:#fff}
-.btn-more[hidden]{display:none}
-
-.no-results{padding:22px 20px;font-size:14px;color:var(--muted);display:none}
-.table-block.is-empty .no-results{display:block}
-.table-block.is-empty table{display:none}
-.table-block.is-empty .table-foot{display:none}
-
-/* CTA */
-.cta{
-  position:relative;overflow:hidden;padding:40px;border-radius:var(--radius-lg);color:#fff;
-  background:
-    radial-gradient(800px 400px at 8% 10%,rgba(28,105,207,.45),transparent),
-    radial-gradient(800px 400px at 92% 90%,rgba(6,42,92,.8),transparent),
-    linear-gradient(120deg,var(--blue-900),var(--navy));
-  box-shadow:var(--shadow-lg);
-}
-.cta-inner{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:36px}
-.cta h2{margin:0 0 12px;font-size:clamp(26px,3.6vw,38px);line-height:1.08;letter-spacing:-.04em}
-.cta p{margin:0;max-width:660px;font-size:15.5px;color:rgba(255,255,255,.76)}
 
 /* Footer */
 .footer{margin-top:60px;background:var(--navy);color:rgba(255,255,255,.68);padding:70px 0 30px}
@@ -227,8 +156,6 @@ tbody tr:last-child td{border-bottom:0}
   .brand-head-inner{grid-template-columns:1fr;gap:20px}
   .brand-head-logo{width:100px;height:100px}
   .footer-grid{grid-template-columns:repeat(2,1fr)}
-  .cta-inner{grid-template-columns:1fr}
-  .catalog-toolbar{top:0}
 }
 
 @media(max-width:760px){
@@ -246,19 +173,11 @@ tbody tr:last-child td{border-bottom:0}
   .brand-head{padding:18px 0 24px}
   .brand-head-copy h1{font-size:clamp(24px,7vw,32px)}
   .brand-head-copy p{font-size:14.5px}
-  .section{padding:32px 0}
-
-  .toolbar-inner{gap:10px}
-  .search-box{flex:1 1 100%}
-  .cat-jump{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
-  .cat-jump a{flex:0 0 auto}
 
   th,td{padding:8px 12px;font-size:12.5px}
   th{padding:9px 12px;font-size:10.5px}
   .table-head{padding:12px 14px}
-  .table-foot{padding:10px 14px}
 
-  .cta{padding:30px 20px}
   .footer{padding:50px 0 24px}
   .footer-grid{grid-template-columns:1fr;gap:32px}
   .footer-bottom{flex-direction:column;align-items:flex-start}
@@ -324,7 +243,6 @@ tbody tr:last-child td{border-bottom:0}
     <div class="container">
       <div class="brand-head-inner">
         <div class="brand-head-logo">
-          <!-- Замените на логотип бренда -->
           <span>SIEMENS</span>
         </div>
         <div class="brand-head-copy">
@@ -336,8 +254,8 @@ tbody tr:last-child td{border-bottom:0}
             Работаем со складскими позициями и под заказ.
           </p>
           <div class="brand-meta">
-            <span>6 категорий</span>
-            <span>320+ артикулов</span>
+            <span id="meta-cats">Загрузка...</span>
+            <span id="meta-items">Загрузка...</span>
             <span>B2B · юр. лица</span>
             <span>Доставка по РФ</span>
           </div>
@@ -346,342 +264,9 @@ tbody tr:last-child td{border-bottom:0}
     </div>
   </section>
 
-  <!-- Sticky toolbar -->
-  <div class="catalog-toolbar">
+  <section class="section">
     <div class="container">
-      <div class="toolbar-inner">
-        <div class="search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="11" cy="11" r="7"></circle>
-            <path d="M20 20l-3.5-3.5"></path>
-          </svg>
-          <input id="catalog-search" type="search" placeholder="Поиск по артикулу или названию…" autocomplete="off">
-        </div>
-        <div class="cat-jump">
-          <a href="#cat-plc">ПЛК</a>
-          <a href="#cat-drives">Приводы и ПЧ</a>
-          <a href="#cat-kip">КИП</a>
-          <a href="#cat-power">Электропитание</a>
-          <a href="#cat-switch">Коммутация</a>
-          <a href="#cat-accessories">Аксессуары</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="section" id="catalog">
-    <div class="container">
-      <div class="table-stack" id="catalog-stack">
-
-        <!-- 1 -->
-        <div class="table-block" id="cat-plc" data-block>
-          <div class="table-head">
-            <h3>ПЛК и автоматизация</h3>
-            <span class="count" data-count>0 позиций</span>
-          </div>
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Артикул</th>
-                  <th>Наименование</th>
-                  <th>Параметры</th>
-                  <th style="text-align:right">Цена, ₽</th>
-                  <th>Наличие</th>
-                </tr>
-              </thead>
-              <tbody data-tbody>
-                <tr>
-                  <td class="code">6ES7214-1AG40-0XB0</td>
-                  <td class="name-cell">CPU 1214C DC/DC/DC, SIMATIC S7-1200</td>
-                  <td class="params">14 DI / 10 DO, 2 AI, 100 кБ</td>
-                  <td class="price">52 400 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7231-4HD32-0XB0</td>
-                  <td class="name-cell">Модуль аналогового ввода SM 1231</td>
-                  <td class="params">4 AI, 13 бит, ±10 В / 0–20 мА</td>
-                  <td class="price">27 900 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6AV2123-2GB03-0AX0</td>
-                  <td class="name-cell">Панель оператора KTP700 Basic</td>
-                  <td class="params">7", TFT, 800×480, Profinet</td>
-                  <td class="price">41 200 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7223-1BL32-0XB0</td>
-                  <td class="name-cell">Модуль дискретных вводов/выводов SM 1223</td>
-                  <td class="params">16 DI / 16 DO, 24 В DC</td>
-                  <td class="price">31 500 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7231-5QF32-0XB0</td>
-                  <td class="name-cell">Модуль ввода температуры SM 1231</td>
-                  <td class="params">8 AI, термопары</td>
-                  <td class="price">38 900 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7215-1AG40-0XB0</td>
-                  <td class="name-cell">CPU 1215C DC/DC/DC, S7-1200</td>
-                  <td class="params">14 DI / 10 DO, 2 AI, 2 AO</td>
-                  <td class="price">68 700 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6AV2124-0GC01-0AX0</td>
-                  <td class="name-cell">Панель оператора TP700 Comfort</td>
-                  <td class="params">7", TFT, 800×480, Profinet</td>
-                  <td class="price">87 300 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7954-8LC03-0AA0</td>
-                  <td class="name-cell">Карта памяти SIMATIC S7, 4 МБ</td>
-                  <td class="params">Micro SD, для S7-1200</td>
-                  <td class="price">6 900 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7290-6AA30-0XA0</td>
-                  <td class="name-cell">Кабель расширения S7-1200</td>
-                  <td class="params">2 м, для модулей расширения</td>
-                  <td class="price">4 200 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7232-4HB32-0XB0</td>
-                  <td class="name-cell">Модуль аналогового вывода SM 1232</td>
-                  <td class="params">4 AO, ±10 В / 0–20 мА</td>
-                  <td class="price">35 600 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7212-1AE40-0XB0</td>
-                  <td class="name-cell">CPU 1212C AC/DC/Relay, S7-1200</td>
-                  <td class="params">8 DI / 6 DO, 2 AI</td>
-                  <td class="price">44 100 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6ES7231-4HF32-0XB0</td>
-                  <td class="name-cell">Модуль аналогового ввода SM 1231</td>
-                  <td class="params">8 AI, 13 бит</td>
-                  <td class="price">46 800 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="no-results">Ничего не найдено по запросу.</div>
-          <div class="table-foot" data-foot hidden>
-            <span class="shown" data-shown></span>
-            <button class="btn-more" type="button" data-more>Показать ещё</button>
-          </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="table-block" id="cat-drives" data-block>
-          <div class="table-head">
-            <h3>Приводы и преобразователи частоты</h3>
-            <span class="count" data-count>0 позиций</span>
-          </div>
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Артикул</th>
-                  <th>Наименование</th>
-                  <th>Параметры</th>
-                  <th style="text-align:right">Цена, ₽</th>
-                  <th>Наличие</th>
-                </tr>
-              </thead>
-              <tbody data-tbody>
-                <tr>
-                  <td class="code">6SL3210-5BB21-1UV1</td>
-                  <td class="name-cell">Преобразователь частоты SINAMICS V20</td>
-                  <td class="params">1,1 кВт, 220 В, 1 фаза</td>
-                  <td class="price">18 700 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6SL3224-0BE31-1UA0</td>
-                  <td class="name-cell">SINAMICS G120, блок мощности PM240</td>
-                  <td class="params">11 кВт, 380–480 В, с фильтром</td>
-                  <td class="price">94 500 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6SL3255-0AA00-4CA1</td>
-                  <td class="name-cell">Панель управления BOP-2</td>
-                  <td class="params">Для SINAMICS G120, съёмная</td>
-                  <td class="price">6 300 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6SL3210-1KE12-3UF1</td>
-                  <td class="name-cell">SINAMICS G120C, 3 кВт</td>
-                  <td class="params">380–480 В, 3 фазы, с фильтром</td>
-                  <td class="price">42 900 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6SL3210-1PE21-1UL0</td>
-                  <td class="name-cell">SINAMICS G120 PM240-2, 7,5 кВт</td>
-                  <td class="params">380–480 В, с фильтром</td>
-                  <td class="price">78 400 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6SL3255-0AA00-4JA2</td>
-                  <td class="name-cell">Панель управления IOP-2</td>
-                  <td class="params">Для SINAMICS G120, с дисплеем</td>
-                  <td class="price">17 800 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6SL3203-0BE12-0VA0</td>
-                  <td class="name-cell">Сетевой дроссель для SINAMICS</td>
-                  <td class="params">6,6 мГн, 12 А</td>
-                  <td class="price">9 700 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="no-results">Ничего не найдено по запросу.</div>
-          <div class="table-foot" data-foot hidden>
-            <span class="shown" data-shown></span>
-            <button class="btn-more" type="button" data-more>Показать ещё</button>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="table-block" id="cat-kip" data-block>
-          <div class="table-head">
-            <h3>КИП и датчики</h3>
-            <span class="count" data-count>0 позиций</span>
-          </div>
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Артикул</th>
-                  <th>Наименование</th>
-                  <th>Параметры</th>
-                  <th style="text-align:right">Цена, ₽</th>
-                  <th>Наличие</th>
-                </tr>
-              </thead>
-              <tbody data-tbody>
-                <tr>
-                  <td class="code">7MF1565-3CD00-1AA1</td>
-                  <td class="name-cell">Датчик давления SITRANS P220</td>
-                  <td class="params">0–16 бар, 4–20 мА, G½</td>
-                  <td class="price">31 800 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">7NG3211-0NN00</td>
-                  <td class="name-cell">Преобразователь температуры TH320</td>
-                  <td class="params">HART, IP66, алюм. корпус</td>
-                  <td class="price">44 100 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-                <tr>
-                  <td class="code">7MF1567-3CA00-1AA1</td>
-                  <td class="name-cell">Датчик давления SITRANS P210</td>
-                  <td class="params">0–10 бар, 4–20 мА</td>
-                  <td class="price">24 300 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">7NG3212-0NN00</td>
-                  <td class="name-cell">Преобразователь температуры TH320</td>
-                  <td class="params">HART, IP67</td>
-                  <td class="price">47 600 <small>с НДС</small></td>
-                  <td><span class="status on-order">Под заказ</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="no-results">Ничего не найдено по запросу.</div>
-          <div class="table-foot" data-foot hidden>
-            <span class="shown" data-shown></span>
-            <button class="btn-more" type="button" data-more>Показать ещё</button>
-          </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="table-block" id="cat-power" data-block>
-          <div class="table-head">
-            <h3>Электропитание</h3>
-            <span class="count" data-count>0 позиций</span>
-          </div>
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Артикул</th>
-                  <th>Наименование</th>
-                  <th>Параметры</th>
-                  <th style="text-align:right">Цена, ₽</th>
-                  <th>Наличие</th>
-                </tr>
-              </thead>
-              <tbody data-tbody>
-                <tr>
-                  <td class="code">6EP1334-2BA20</td>
-                  <td class="name-cell">Блок питания SITOP PSU100S</td>
-                  <td class="params">24 В, 10 А, 240 Вт</td>
-                  <td class="price">12 900 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6EP1931-2EC21</td>
-                  <td class="name-cell">Модуль DC UPS SITOP</td>
-                  <td class="params">24 В, 5 А, без аккумулятора</td>
-                  <td class="price">23 400 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-                <tr>
-                  <td class="code">6EP1333-2BA20</td>
-                  <td class="name-cell">Блок питания SITOP PSU100S</td>
-                  <td class="params">24 В, 5 А, 120 Вт</td>
-                  <td class="price">8 400 <small>с НДС</small></td>
-                  <td><span class="status in-stock">В наличии</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="no-results">Ничего не найдено по запросу.</div>
-          <div class="table-foot" data-foot hidden>
-            <span class="shown" data-shown></span>
-            <button class="btn-more" type="button" data-more>Показать ещё</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <div class="cta">
-        <div class="cta-inner">
-          <div>
-            <h2>Нужен подбор по SIEMENS?</h2>
-            <p>Пришлите артикул, модель или описание задачи — проверим наличие, предложим аналоги и согласуем условия поставки.</p>
-          </div>
-          <a class="btn btn-white" href="#contacts">Связаться с отделом продаж</a>
-        </div>
-      </div>
+      <div class="table-stack" id="catalog-stack"></div>
     </div>
   </section>
 
@@ -738,98 +323,116 @@ tbody tr:last-child td{border-bottom:0}
 </footer>
 
 <script>
-/* Catalog: show 10, "show more" by 10, search filter */
-(() => {
-  const PAGE = 10;
-  const blocks = Array.from(document.querySelectorAll('[data-block]'));
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch('/products/siemens.json');
+    if (!response.ok) throw new Error('Ошибка загрузки JSON');
+    const products = await response.json();
 
-  blocks.forEach(block => {
-    const tbody = block.querySelector('[data-tbody]');
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    const foot = block.querySelector('[data-foot]');
-    const moreBtn = block.querySelector('[data-more]');
-    const shownEl = block.querySelector('[data-shown]');
-    const countEl = block.querySelector('[data-count]');
-
-    let visible = PAGE;
-
-    function render() {
-      const matched = rows.filter(r => r.dataset.match !== '0');
-      const total = matched.length;
-      countEl.textContent = total + ' ' + plural(total, ['позиция','позиции','позиций']);
-
-      rows.forEach(r => { r.hidden = true; });
-      matched.forEach((r, i) => { r.hidden = i >= visible; });
-
-      if (total === 0) {
-        block.classList.add('is-empty');
-        foot.hidden = true;
-        return;
-      }
-      block.classList.remove('is-empty');
-
-      if (total > PAGE) {
-        foot.hidden = false;
-        const shown = Math.min(visible, total);
-        shownEl.textContent = 'Показано ' + shown + ' из ' + total;
-        if (visible < total) {
-          moreBtn.hidden = false;
-          moreBtn.textContent = 'Показать ещё ' + Math.min(PAGE, total - visible);
-        } else {
-          moreBtn.hidden = true;
-        }
-      } else {
-        foot.hidden = true;
-      }
+    // Функция для правильного склонения слова "позиция"
+    function plural(n, forms) {
+      const n10 = n % 10, n100 = n % 100;
+      if (n10 === 1 && n100 !== 11) return forms[0];
+      if (n10 >= 2 && n10 <= 4 && (n100 < 10 || n100 >= 20)) return forms[1];
+      return forms[2];
     }
 
-    moreBtn.addEventListener('click', () => {
-      visible += PAGE;
-      render();
-    });
+    // Мета-данные
+    const uniqueCats = new Set(products.map(p => p.category));
+    document.getElementById('meta-cats').textContent = uniqueCats.size + ' ' + plural(uniqueCats.size, ['категория', 'категории', 'категорий']);
+    document.getElementById('meta-items').textContent = products.length + ' ' + plural(products.length, ['артикул', 'артикула', 'артикулов']);
 
-    block._render = render;
-    block._resetVisible = () => { visible = PAGE; };
-    block._rows = rows;
+    // Группируем по КАТЕГОРИЯМ, внутри — по ПОДКАТЕГОРИЯМ
+    const groupedByCategory = products.reduce((acc, p) => {
+      if (!acc[p.category]) {
+        acc[p.category] = { 
+          name: p.categoryName, 
+          subcategories: {} 
+        };
+      }
+      
+      const subcatKey = p.subcategory || 'other';
+      const subcatName = p.subcategoryName || 'Прочее';
+      
+      if (!acc[p.category].subcategories[subcatKey]) {
+        acc[p.category].subcategories[subcatKey] = { name: subcatName, items: [] };
+      }
+      
+      acc[p.category].subcategories[subcatKey].items.push(p);
+      return acc;
+    }, {});
 
-    rows.forEach(r => { r.dataset.match = '1'; });
-    render();
-  });
+    let html = '';
 
-  function plural(n, forms) {
-    const n10 = n % 10, n100 = n % 100;
-    if (n10 === 1 && n100 !== 11) return forms[0];
-    if (n10 >= 2 && n10 <= 4 && (n100 < 10 || n100 >= 20)) return forms[1];
-    return forms[2];
+    // Проходимся по категориям
+    for (const catData of Object.values(groupedByCategory)) {
+      let totalItemsInCat = 0;
+      for (const subcat of Object.values(catData.subcategories)) {
+        totalItemsInCat += subcat.items.length;
+      }
+
+      // Заголовок категории (без коробки, просто красивый текст)
+      html += `
+        <div class="cat-group" style="margin-bottom: 40px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--line); padding-bottom: 10px;">
+            <h2 style="margin: 0; font-size: 24px; color: var(--blue-900); font-weight: 800;">${catData.name}</h2>
+            <span style="font-size: 14px; font-weight: 700; color: var(--muted);">${totalItemsInCat} ${plural(totalItemsInCat, ['позиция', 'позиции', 'позиций'])}</span>
+          </div>
+      `;
+
+      // Проходимся по подкатегориям
+      for (const subcatData of Object.values(catData.subcategories)) {
+        html += `
+          <div class="table-block" style="margin-bottom: 24px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: var(--shadow-sm);">
+            
+            ${subcatData.name !== 'Прочее' ? `
+              <div class="table-head" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: linear-gradient(90deg, var(--blue-50), #fff); border-bottom: 1px solid var(--line);">
+                <h3 style="margin: 0; font-size: 16.5px; color: var(--ink);">${subcatData.name}</h3>
+                <span style="font-size: 12.5px; font-weight: 700; color: var(--blue-700); background: var(--blue-100); padding: 4px 10px; border-radius: 99px;">
+                  ${subcatData.items.length} ${plural(subcatData.items.length, ['позиция', 'позиции', 'позиций'])}
+                </span>
+              </div>
+            ` : ''}
+            
+            <div class="table-scroll" style="overflow-x: auto;">
+              <table style="width: 100%; min-width: 760px; border-collapse: collapse;">
+                <thead>
+                  <tr>
+                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: left;">Артикул</th>
+                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: left;">Наименование</th>
+                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: left;">Параметры</th>
+                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: right;">Цена, ₽</th>
+                    <th style="padding: 9px 16px; background: #f7f9fc; color: #42526b; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); text-align: left;">Наличие</th>
+                  </tr>
+                </thead>
+                <tbody>
+        `;
+        
+        subcatData.items.forEach(item => {
+          const badge = item.stock === 'in' ? '<span class="status in-stock" style="background:#e7f6ed; color:#15803d; padding:3px 9px; border-radius:99px; font-size:11px; font-weight:700;">В наличии</span>' : '<span class="status on-order" style="background:#fff3e0; color:#b45309; padding:3px 9px; border-radius:99px; font-size:11px; font-weight:700;">Под заказ</span>';
+          html += `
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td class="code" style="padding: 8px 16px; font-family: ui-monospace, monospace; font-weight: 700; color: var(--blue-700);">${item.sku}</td>
+              <td style="padding: 8px 16px; font-size: 13.5px;">${item.name}</td>
+              <td style="padding: 8px 16px; color: var(--muted); font-size: 12.5px;">${item.params}</td>
+              <td class="price" style="padding: 8px 16px; font-weight: 800; text-align: right;">${item.price.toLocaleString('ru-RU')} <small style="display:block; font-size: 10.5px; font-weight: 600; color: var(--muted);">с НДС</small></td>
+              <td style="padding: 8px 16px;">${badge}</td>
+            </tr>
+          `;
+        });
+        
+        html += `</tbody></table></div></div>`;
+      }
+      
+      html += `</div>`; // Закрываем категорию
+    }
+
+    document.getElementById('catalog-stack').innerHTML = html;
+  } catch (error) {
+    console.error(error);
+    document.getElementById('catalog-stack').innerHTML = '<p style="color:red;">Ошибка загрузки товаров. Проверьте консоль.</p>';
   }
-
-  const search = document.getElementById('catalog-search');
-
-  search.addEventListener('input', () => {
-    const q = search.value.trim().toLowerCase();
-
-    blocks.forEach(block => {
-      block._rows.forEach(row => {
-        if (!q) {
-          row.dataset.match = '1';
-          return;
-        }
-        row.dataset.match = row.textContent.toLowerCase().includes(q) ? '1' : '0';
-      });
-      block._resetVisible();
-      block._render();
-    });
-
-    if (q) {
-      blocks.forEach(block => {
-        const has = block._rows.some(r => r.dataset.match === '1');
-        block.hidden = !has;
-      });
-    } else {
-      blocks.forEach(block => { block.hidden = false; });
-    }
-  });
-})();
+});
 </script>
 
 </body>

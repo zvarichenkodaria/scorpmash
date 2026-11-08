@@ -1,0 +1,67 @@
+[
+  {
+    "sku": "6SL3210-5BB21-1UV1",
+    "name": "Преобразователь частоты SINAMICS V20",
+    "brand": "siemens",
+    "brandName": "SIEMENS",
+    "category": "drives",
+    "categoryName": "ПЧ и УПП",
+    "subcategory": "pch",
+    "subcategoryName": "Преобразователи частоты (ПЧ)",
+    "params": "1,1 кВт, 220 В, 1 фаза",
+    "price": 18700,
+    "stock": "in"
+  },
+  {
+    "sku": "6SL3224-0BE31-1UA0",
+    "name": "SINAMICS G120, блок мощности PM240",
+    "brand": "siemens",
+    "brandName": "SIEMENS",
+    "category": "drives",
+    "categoryName": "ПЧ и УПП",
+    "subcategory": "pch",
+    "subcategoryName": "Преобразователи частоты (ПЧ)",
+    "params": "11 кВт, 380–480 В, с фильтром",
+    "price": 94500,
+    "stock": "order"
+  },
+  {
+    "sku": "6SL3210-1KE12-3UF1",
+    "name": "SINAMICS G120C, 3 кВт",
+    "brand": "siemens",
+    "brandName": "SIEMENS",
+    "category": "drives",
+    "categoryName": "ПЧ и УПП",
+    "subcategory": "pch",
+    "subcategoryName": "Преобразователи частоты (ПЧ)",
+    "params": "380–480 В, 3 фазы, с фильтром",
+    "price": 42900,
+    "stock": "in"
+  },
+  {
+    "sku": "3RW4026-1BB04",
+    "name": "Устройство плавного пуска SIRIUS 3RW40",
+    "brand": "siemens",
+    "brandName": "SIEMENS",
+    "category": "drives",
+    "categoryName": "ПЧ и УПП",
+    "subcategory": "upp",
+    "subcategoryName": "Устройства плавного пуска (УПП)",
+    "params": "25 А, 400 В",
+    "price": 55000,
+    "stock": "in"
+  },
+  {
+    "sku": "3RW4037-1BB14",
+    "name": "Устройство плавного пуска SIRIUS 3RW40",
+    "brand": "siemens",
+    "brandName": "SIEMENS",
+    "category": "drives",
+    "categoryName": "ПЧ и УПП",
+    "subcategory": "upp",
+    "subcategoryName": "Устройства плавного пуска (УПП)",
+    "params": "63 А, 400 В",
+    "price": 82000,
+    "stock": "order"
+  }
+]
