@@ -176,18 +176,24 @@ tbody tr:last-child td{border-bottom:0}
 <!-- СКРИПТ ДЛЯ ПОДГРУЗКИ ШАПКИ И ПОДВАЛА -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Подгружаем шапку
-  fetch('../../header.html')
+  // Загружаем и вставляем шапку
+  fetch('./header.html') // для главной. На бренде и категории поменяй на '../../header.html'
     .then(res => res.text())
     .then(html => {
-      document.getElementById('header-placeholder').innerHTML = html;
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const placeholder = document.getElementById('header-placeholder');
+      if (placeholder) placeholder.replaceWith(...temp.childNodes);
     });
 
-  // Подгружаем подвал
-  fetch('../../footer.html')
+  // Загружаем и вставляем подвал
+  fetch('./footer.html') // для главной. На бренде и категории поменяй на '../../footer.html'
     .then(res => res.text())
     .then(html => {
-      document.getElementById('footer-placeholder').innerHTML = html;
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const placeholder = document.getElementById('footer-placeholder');
+      if (placeholder) placeholder.replaceWith(...temp.childNodes);
     });
 });
 </script>
