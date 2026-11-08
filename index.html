@@ -511,11 +511,10 @@ button{font:inherit}
   font-weight:600;
   color:var(--muted);
 }
-
 .brand img {
   max-width: 100%;
-  max-height: 60px; /* Ограничиваем высоту, чтобы всё было аккуратно */
-  object-fit: contain; /* Сохраняем пропорции */
+  max-height: 60px;
+  object-fit: contain;
   display: block;
 }
 
@@ -655,7 +654,7 @@ tbody tr:last-child td{border-bottom:0}
     radial-gradient(800px 400px at 92% 90%,rgba(6,42,92,.8),transparent),
     linear-gradient(120deg,var(--blue-900),var(--navy));
   box-shadow:var(--shadow-lg);
-  top:50px;
+  margin-bottom: 100px; /* Тот самый воздух перед футером */
 }
 .cta-inner{
   position:relative;
@@ -705,7 +704,7 @@ tbody tr:last-child td{border-bottom:0}
   .section-head{flex-direction:column;align-items:flex-start;gap:18px}
   .category-grid,.brand-grid,.feature-grid{grid-template-columns:1fr}
   .banner{padding:28px;min-height:300px}
-  .cta{padding:40px 24px}
+  .cta{padding:40px 24px; margin-bottom: 60px;}
   .cta-inner{grid-template-columns:1fr}
 }
 </style>
@@ -713,7 +712,7 @@ tbody tr:last-child td{border-bottom:0}
 
 <body>
 
-<!-- ЗАГЛУШКА ДЛЯ ШАПКИ -->
+<!-- Заглушка для шапки -->
 <div id="header-placeholder"></div>
 
 <main>
@@ -967,29 +966,26 @@ tbody tr:last-child td{border-bottom:0}
         <a class="section-link" href="#">Все бренды →</a>
       </div>
 
-
- 
-
-<div class="brand-grid">
-  <a class="brand" href="/scorpmash/brand/siemens">
-    <img src="images/siemens.png" alt="SIEMENS">
-  </a>
-  <a class="brand" href="/scorpmash/brand/eldin">
-    <img src="images/eldin.png" alt="ELDIN">
-  </a>
-  <a class="brand" href="/scorpmash/brand/cnp">
-    <img src="images/cnp.png" alt="CNP">
-  </a>
-  <a class="brand" href="/scorpmash/brand/moxa">
-    <img src="images/moxa.png" alt="MOXA">
-  </a>
-  <a class="brand" href="/scorpmash/brand/owen">
-    <img src="images/owen.png" alt="ОВЕН">
-  </a>
-  <a class="brand" href="/scorpmash/brand/velt">
-    <img src="images/velt.png" alt="ВЭЛТ">
-  </a>
-</div>
+      <div class="brand-grid">
+        <a class="brand" href="/scorpmash/brand/siemens">
+          <img src="images/siemens.png" alt="SIEMENS">
+        </a>
+        <a class="brand" href="/scorpmash/brand/eldin">
+          <img src="images/eldin.png" alt="ELDIN">
+        </a>
+        <a class="brand" href="/scorpmash/brand/cnp">
+          <img src="images/cnp.png" alt="CNP">
+        </a>
+        <a class="brand" href="/scorpmash/brand/moxa">
+          <img src="images/moxa.png" alt="MOXA">
+        </a>
+        <a class="brand" href="/scorpmash/brand/owen">
+          <img src="images/owen.png" alt="ОВЕН">
+        </a>
+        <a class="brand" href="/scorpmash/brand/velt">
+          <img src="images/velt.png" alt="ВЭЛТ">
+        </a>
+      </div>
 
     </div>
   </section>
@@ -1063,7 +1059,6 @@ tbody tr:last-child td{border-bottom:0}
 
   <section id="about">
     <div class="container">
-
       <div class="cta">
         <div class="cta-inner">
           <div>
@@ -1076,19 +1071,38 @@ tbody tr:last-child td{border-bottom:0}
           <a class="btn btn-white" href="#contacts">Связаться с отделом продаж</a>
         </div>
       </div>
-
     </div>
   </section>
 
-
-  <section id="about" style="margin-bottom: 100px;">
-
-  
 </main>
 
-<!-- ЗАГЛУШКА ДЛЯ ПОДВАЛА -->
+<!-- Заглушка для подвала -->
 <div id="footer-placeholder"></div>
 
+<!-- ЕДИНЫЙ СКРИПТ ДЛЯ ЗАГРУЗКИ ШАПКИ И ПОДВАЛА -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Загружаем шапку и применяем фиксацию
+  fetch('/scorpmash/header.html')
+    .then(res => res.text())
+    .then(html => {
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const placeholder = document.getElementById('header-placeholder');
+      if (placeholder) placeholder.replaceWith(...temp.childNodes);
+    });
+
+  // Загружаем подвал
+  fetch('/scorpmash/footer.html')
+    .then(res => res.text())
+    .then(html => {
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const placeholder = document.getElementById('footer-placeholder');
+      if (placeholder) placeholder.replaceWith(...temp.childNodes);
+    });
+});
+</script>
 
 <!-- СКРИПТ СЛАЙДЕРА -->
 <script>
@@ -1145,29 +1159,19 @@ document.getElementById('global-search-form').addEventListener('submit', async f
   if (!query) return;
 
   try {
-    // Загружаем нашу базу
     const response = await fetch('./products/siemens.json');
     const products = await response.json();
 
-    // Ищем товар
     const found = products.find(p => {
-      // Ищем по артикулу (полное или частичное совпадение)
       const matchSku = p.sku.toLowerCase().includes(query) || p.name.toLowerCase().includes(query);
-      
-      // Если выбрана категория, проверяем её
       const matchCat = selectedCategory ? p.category === selectedCategory : true;
-      
-      // Если выбран бренд, проверяем его
       const matchBrand = selectedBrand ? p.brand === selectedBrand : true;
-      
       return matchSku && matchCat && matchBrand;
     });
 
     if (found) {
-      // Если товар найден — редиректим на страницу бренда с параметром поиска
       window.location.href = `/scorpmash/brand/${found.brand}/?search=${encodeURIComponent(found.sku)}`;
     } else {
-      // Если не нашли, можно выдать ошибку или перекинуть в каталог
       alert('Товар по вашему запросу не найден. Проверьте артикул.');
     }
   } catch (error) {
